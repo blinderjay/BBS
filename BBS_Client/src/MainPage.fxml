@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<SplitPane dividerPositions="0.05585106382978723" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.blinderjay.BBS.client.front.MainPageController">
+<SplitPane dividerPositions="0.05585106382978723" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPageController">
   <items>
       <VBox fx:id="sidebar" alignment="CENTER" maxWidth="36.0" minWidth="36.0" prefWidth="36.0" spacing="27.0">
          <children>

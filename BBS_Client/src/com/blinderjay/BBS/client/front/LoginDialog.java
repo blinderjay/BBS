@@ -5,17 +5,14 @@
  */
 package com.blinderjay.BBS.client.front;
 
-import java.util.Optional;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
 
@@ -23,9 +20,11 @@ import javafx.util.Pair;
  *
  * @author blinderjay
  */
-public class LoginDialog extends Dialog<Pair<String, String>> {
+public class LoginDialog extends Dialog<Pair<ButtonType, Pair<String,String>>> {
     // Create the custom dialog.
-
+   public final ButtonType loginButtonType;
+     public final ButtonType signupButtonType;
+     
     public LoginDialog() {
         this.setTitle("Login Dialog");
         this.setHeaderText("You must login with your account");
@@ -33,8 +32,8 @@ public class LoginDialog extends Dialog<Pair<String, String>> {
         //this.setGraphic(new ImageView(this.getClass().getResource("login.png").toString()));
         // Set the button types.
 //ButtonType loginButtonType = new ButtonType("Login", ButtonData.OK_DONE);
-        ButtonType loginButtonType = new ButtonType("Login");
-        ButtonType signupButtonType = new ButtonType("Signup");
+         loginButtonType = new ButtonType("Login");
+         signupButtonType = new ButtonType("Signup");
         this.getDialogPane().getButtonTypes().addAll(loginButtonType, signupButtonType, ButtonType.CANCEL);
 
 // Create the username and password labels and fields.
@@ -55,10 +54,18 @@ public class LoginDialog extends Dialog<Pair<String, String>> {
 
 //Create login and signup button depending on whether a username was entered.
         Node loginButton = this.getDialogPane().lookupButton(loginButtonType);
+        Node signupButton = this.getDialogPane().lookupButton(signupButtonType);
         loginButton.setDisable(true);
+                signupButton.setDisable(true);
 
         username.textProperty().addListener((observable, oldValue, newValue) -> {
-            loginButton.setDisable(newValue.trim().isEmpty());
+            signupButton.setDisable(newValue.trim().isEmpty() || password.getText().trim().isEmpty());
+            loginButton.setDisable(newValue.trim().isEmpty() || password.getText().trim().isEmpty());
+        });
+
+        password.textProperty().addListener((observable, oldValue, newValue) -> {
+            signupButton.setDisable(newValue.trim().isEmpty() || username.getText().trim().isEmpty());
+            loginButton.setDisable(newValue.trim().isEmpty() || username.getText().trim().isEmpty());
         });
 
         this.getDialogPane().setContent(grid);
@@ -68,21 +75,13 @@ public class LoginDialog extends Dialog<Pair<String, String>> {
 
 // Convert the result to a username-password-pair when the login button is clicked.
         this.setResultConverter(dialogButton -> {
-            if (dialogButton == loginButtonType) {
-                return new Pair<>(username.getText(), password.getText());
-            } else if (dialogButton == signupButtonType) {
-                return null;
+            if (dialogButton == loginButtonType || dialogButton == loginButtonType) {
+                return new Pair<>(dialogButton, new Pair<>(username.getText(), password.getText()));
             } else {
                 return null;
             }
-
         });
 
-//        Optional<Pair<String, String>> result = dialog.showAndWait();
-//
-//        result.ifPresent(usernamePassword -> {
-//            System.out.println("Username=" + usernamePassword.getKey() + ", Password=" + usernamePassword.getValue());
-//        });
     }
 
 }

@@ -19,7 +19,7 @@ public class bbsClient extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/blinderjay/BBS/client/front/MainPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/MainPage.fxml"));
         
         Scene scene = new Scene(root, 1200, 800);
         

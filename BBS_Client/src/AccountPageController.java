@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -13,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author blinderjay
  */
-public class TestPageController implements Initializable {
+public class AccountPageController implements Initializable {
 
     /**
      * Initializes the controller class.
