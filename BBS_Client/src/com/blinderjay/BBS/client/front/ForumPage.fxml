@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.blinderjay.BBS.client.front.ForumPageController">
+   <center>
+      <ScrollPane>
+         <content>
+            <VBox fx:id="threadlist" />
+         </content>
+      </ScrollPane>
+   </center>
+   <top>
+      <Button fx:id="showTT" mnemonicParsing="false" onAction="#showThreads" text="Show All Thread" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea maxHeight="84.0" prefHeight="84.0" prefWidth="200.0" />
+            <Button mnemonicParsing="false" text="push" />
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>

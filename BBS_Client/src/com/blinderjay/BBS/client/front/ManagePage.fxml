@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+        <columns>
+          <TableColumn prefWidth="75.0" text="topic" />
+          <TableColumn prefWidth="75.0" text="context" />
+            <TableColumn prefWidth="75.0" text="createtime" />
+            <TableColumn prefWidth="75.0" />
+            <TableColumn prefWidth="75.0" />
+            <TableColumn prefWidth="75.0" text="delete" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>

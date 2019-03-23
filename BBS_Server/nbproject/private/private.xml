@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="FxApp">
+            <file>file:/home/blinderjay/MyPro/BBS_Server/src/com/blinderjay/BBS/grpc/proto/ContactService.proto</file>
+            <file>file:/home/blinderjay/MyPro/BBS_Server/src/com/blinderjay/sql/sqlConnection.java</file>
+            <file>file:/home/blinderjay/MyPro/BBS_Server/src/com/blinderjay/BBS/server/bbsServer.java</file>
+            <file>file:/home/blinderjay/MyPro/BBS_Server/src/com/blinderjay/BBS/server/ConServicePro.java</file>
+            <file>file:/home/blinderjay/MyPro/BBS_Server/src/com/blinderjay/BBS/server/GrpcServer.java</file>
+        </group>
+    </open-files>
+</project-private>
