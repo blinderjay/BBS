@@ -6,15 +6,18 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+      <TableView fx:id="threadmanage" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tableMenuButtonVisible="true">
         <columns>
-          <TableColumn prefWidth="75.0" text="topic" />
-          <TableColumn prefWidth="75.0" text="context" />
-            <TableColumn prefWidth="75.0" text="createtime" />
+          <TableColumn fx:id="tc_topic" prefWidth="75.0" text="topic" />
+          <TableColumn fx:id="tc_context" prefWidth="75.0" text="context" />
+            <TableColumn fx:id="tc_time" prefWidth="75.0" text="createtime" />
             <TableColumn prefWidth="75.0" />
             <TableColumn prefWidth="75.0" />
-            <TableColumn prefWidth="75.0" text="delete" />
+            <TableColumn fx:id="tc_delete" prefWidth="75.0" text="delete" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
    </center>
 </BorderPane>
