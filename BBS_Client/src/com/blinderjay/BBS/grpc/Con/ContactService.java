@@ -92,53 +92,54 @@ public final class ContactService {
       "\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"a\n\007bbsTime" +
       "\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030\003 \001" +
       "(\005\022\014\n\004hour\030\004 \001(\005\022\016\n\006minute\030\005 \001(\005\022\016\n\006seco" +
-      "nd\030\006 \001(\005\"\241\001\n\010bbsError\022&\n\007errtype\030\001 \001(\0162\025" +
-      ".Con.bbsError.errType\022\017\n\007errInfo\030\002 \001(\t\"\\" +
-      "\n\007errType\022\013\n\007Invalid\020\000\022\016\n\nNoResource\020\001\022\r" +
-      "\n\tDuplicate\020\002\022\030\n\024InfomationUncomplete\020\003\022" +
-      "\013\n\007Unknown\020\004\"\327\001\n\014bbsClientReq\022\036\n\006cookie\030" +
-      "\001 \001(\0132\016.Con.bbsCookie\022*\n\007reqtype\030\002 \001(\0162\031" +
-      ".Con.bbsClientReq.reqType\022\013\n\003arg\030\003 \001(\t\"n" +
-      "\n\007reqType\022\017\n\013genUserInfo\020\000\022\016\n\ngenThreads" +
-      "\020\001\022\014\n\010genPosts\020\002\022\016\n\nchPassword\020\003\022\013\n\007delU" +
-      "ser\020\004\022\n\n\006logOut\020\005\022\013\n\007Unknown\020\006\"8\n\014bbsSer" +
-      "verRes\022\032\n\003err\030\001 \001(\0132\r.Con.bbsError\022\014\n\004me" +
-      "ss\030\002 \001(\t\"F\n\014userRegisReq\022\r\n\005email\030\001 \001(\t\022" +
-      "\014\n\004pass\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\013\n\003des\030\004 \001(\t" +
-      "\"+\n\014userLoginReq\022\r\n\005email\030\001 \001(\t\022\014\n\004pass\030" +
-      "\002 \001(\t\"G\n\tuserInRes\022\032\n\003err\030\001 \001(\0132\r.Con.bb" +
-      "sError\022\036\n\006cookie\030\002 \001(\0132\016.Con.bbsCookie\"x" +
-      "\n\013bbsUserInfo\022\032\n\003err\030\001 \001(\0132\r.Con.bbsErro" +
-      "r\022\013\n\003uid\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\r\n\005email\030\004 " +
-      "\001(\t\022#\n\rlastlogintime\030\005 \001(\0132\014.Con.bbsTime" +
-      "\"}\n\tbbsThread\022\032\n\003err\030\001 \001(\0132\r.Con.bbsErro" +
-      "r\022\013\n\003tid\030\002 \001(\005\022\014\n\004user\030\003 \001(\t\022\r\n\005topic\030\004 " +
-      "\001(\t\022\016\n\006contex\030\005 \001(\t\022\032\n\004time\030\006 \001(\0132\014.Con." +
-      "bbsTime\"y\n\007bbsPost\022\032\n\003err\030\001 \001(\0132\r.Con.bb" +
-      "sError\022\013\n\003pid\030\002 \001(\005\022\013\n\003tid\030\003 \001(\005\022\014\n\004user" +
-      "\030\004 \001(\t\022\016\n\006contex\030\005 \001(\t\022\032\n\004time\030\006 \001(\0132\014.C" +
-      "on.bbsTime\"-\n\013userinfoReq\022\036\n\006cookie\030\001 \001(" +
-      "\0132\016.Con.bbsCookie\"G\n\ruserinfoReply\022\032\n\003er" +
-      "r\030\001 \001(\0132\r.Con.bbsError\022\r\n\005email\030\002 \001(\t\022\013\n" +
-      "\003des\030\003 \001(\t2\260\005\n\007BBS_Con\0223\n\014userRegister\022\021" +
-      ".Con.userRegisReq\032\016.Con.userInRes\"\000\0220\n\tu" +
-      "serLogin\022\021.Con.userLoginReq\032\016.Con.userIn" +
-      "Res\"\000\0224\n\nuserLogout\022\021.Con.bbsClientReq\032\021" +
-      ".Con.bbsServerRes\"\000\0224\n\013getUserInfo\022\021.Con" +
-      ".bbsClientReq\032\020.Con.bbsUserInfo\"\000\0223\n\nget" +
-      "Threads\022\021.Con.bbsClientReq\032\016.Con.bbsThre" +
-      "ad\"\0000\001\022/\n\010genPosts\022\021.Con.bbsClientReq\032\014." +
-      "Con.bbsPost\"\0000\001\0228\n\017refreshUserInfo\022\020.Con" +
-      ".bbsUserInfo\032\021.Con.bbsServerRes\"\000\0221\n\npus" +
-      "hThread\022\016.Con.bbsThread\032\021.Con.bbsServerR" +
-      "es\"\000\022.\n\tpushPosts\022\014.Con.bbsPost\032\021.Con.bb" +
-      "sServerRes\"\000\0223\n\tdelThread\022\021.Con.bbsClien" +
-      "tReq\032\021.Con.bbsServerRes\"\000\0221\n\007delPost\022\021.C" +
-      "on.bbsClientReq\032\021.Con.bbsServerRes\"\000\0224\n\n" +
-      "chPassword\022\021.Con.bbsClientReq\032\021.Con.bbsS" +
-      "erverRes\"\000\0221\n\007getinfo\022\020.Con.userinfoReq\032" +
-      "\022.Con.userinfoReply\"\000B\037\n\033com.blinderjay." +
-      "BBS.grpc.ConP\001b\006proto3"
+      "nd\030\006 \001(\005\"\253\001\n\010bbsError\022&\n\007errtype\030\001 \001(\0162\025" +
+      ".Con.bbsError.errType\022\017\n\007errInfo\030\002 \001(\t\"f" +
+      "\n\007errType\022\010\n\004err0\020\000\022\013\n\007Invalid\020\001\022\016\n\nNoRe" +
+      "source\020\002\022\r\n\tDuplicate\020\003\022\030\n\024InfomationUnc" +
+      "omplete\020\004\022\013\n\007Unknown\020\005\"\364\001\n\014bbsClientReq\022" +
+      "\036\n\006cookie\030\001 \001(\0132\016.Con.bbsCookie\022*\n\007reqty" +
+      "pe\030\002 \001(\0162\031.Con.bbsClientReq.reqType\022\013\n\003a" +
+      "rg\030\003 \001(\t\"\212\001\n\007reqType\022\017\n\013genUserInfo\020\000\022\016\n" +
+      "\ngenThreads\020\001\022\014\n\010genPosts\020\002\022\016\n\nchPasswor" +
+      "d\020\003\022\013\n\007delUser\020\004\022\r\n\tdelThread\020\005\022\013\n\007delPo" +
+      "st\020\006\022\n\n\006logOut\020\007\022\013\n\007Unknown\020\010\"8\n\014bbsServ" +
+      "erRes\022\032\n\003err\030\001 \001(\0132\r.Con.bbsError\022\014\n\004mes" +
+      "s\030\002 \001(\t\"F\n\014userRegisReq\022\r\n\005email\030\001 \001(\t\022\014" +
+      "\n\004pass\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\013\n\003des\030\004 \001(\t\"" +
+      "+\n\014userLoginReq\022\r\n\005email\030\001 \001(\t\022\014\n\004pass\030\002" +
+      " \001(\t\"G\n\tuserInRes\022\032\n\003err\030\001 \001(\0132\r.Con.bbs" +
+      "Error\022\036\n\006cookie\030\002 \001(\0132\016.Con.bbsCookie\"x\n" +
+      "\013bbsUserInfo\022\032\n\003err\030\001 \001(\0132\r.Con.bbsError" +
+      "\022\013\n\003uid\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\r\n\005email\030\004 \001" +
+      "(\t\022#\n\rlastlogintime\030\005 \001(\0132\014.Con.bbsTime\"" +
+      "}\n\tbbsThread\022\032\n\003err\030\001 \001(\0132\r.Con.bbsError" +
+      "\022\013\n\003tid\030\002 \001(\005\022\014\n\004user\030\003 \001(\t\022\r\n\005topic\030\004 \001" +
+      "(\t\022\016\n\006contex\030\005 \001(\t\022\032\n\004time\030\006 \001(\0132\014.Con.b" +
+      "bsTime\"y\n\007bbsPost\022\032\n\003err\030\001 \001(\0132\r.Con.bbs" +
+      "Error\022\013\n\003pid\030\002 \001(\005\022\013\n\003tid\030\003 \001(\005\022\014\n\004user\030" +
+      "\004 \001(\t\022\016\n\006contex\030\005 \001(\t\022\032\n\004time\030\006 \001(\0132\014.Co" +
+      "n.bbsTime\"-\n\013userinfoReq\022\036\n\006cookie\030\001 \001(\013" +
+      "2\016.Con.bbsCookie\"G\n\ruserinfoReply\022\032\n\003err" +
+      "\030\001 \001(\0132\r.Con.bbsError\022\r\n\005email\030\002 \001(\t\022\013\n\003" +
+      "des\030\003 \001(\t2\260\005\n\007BBS_Con\0223\n\014userRegister\022\021." +
+      "Con.userRegisReq\032\016.Con.userInRes\"\000\0220\n\tus" +
+      "erLogin\022\021.Con.userLoginReq\032\016.Con.userInR" +
+      "es\"\000\0224\n\nuserLogout\022\021.Con.bbsClientReq\032\021." +
+      "Con.bbsServerRes\"\000\0224\n\013getUserInfo\022\021.Con." +
+      "bbsClientReq\032\020.Con.bbsUserInfo\"\000\0223\n\ngetT" +
+      "hreads\022\021.Con.bbsClientReq\032\016.Con.bbsThrea" +
+      "d\"\0000\001\022/\n\010genPosts\022\021.Con.bbsClientReq\032\014.C" +
+      "on.bbsPost\"\0000\001\0228\n\017refreshUserInfo\022\020.Con." +
+      "bbsUserInfo\032\021.Con.bbsServerRes\"\000\0221\n\npush" +
+      "Thread\022\016.Con.bbsThread\032\021.Con.bbsServerRe" +
+      "s\"\000\022.\n\tpushPosts\022\014.Con.bbsPost\032\021.Con.bbs" +
+      "ServerRes\"\000\0223\n\tdelThread\022\021.Con.bbsClient" +
+      "Req\032\021.Con.bbsServerRes\"\000\0221\n\007delPost\022\021.Co" +
+      "n.bbsClientReq\032\021.Con.bbsServerRes\"\000\0224\n\nc" +
+      "hPassword\022\021.Con.bbsClientReq\032\021.Con.bbsSe" +
+      "rverRes\"\000\0221\n\007getinfo\022\020.Con.userinfoReq\032\022" +
+      ".Con.userinfoReply\"\000B\037\n\033com.blinderjay.B" +
+      "BS.grpc.ConP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

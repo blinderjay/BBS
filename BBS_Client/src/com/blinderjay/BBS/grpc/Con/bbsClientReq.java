@@ -130,13 +130,21 @@ private static final long serialVersionUID = 0L;
      */
     delUser(4),
     /**
-     * <code>logOut = 5;</code>
+     * <code>delThread = 5;</code>
      */
-    logOut(5),
+    delThread(5),
     /**
-     * <code>Unknown = 6;</code>
+     * <code>delPost = 6;</code>
      */
-    Unknown(6),
+    delPost(6),
+    /**
+     * <code>logOut = 7;</code>
+     */
+    logOut(7),
+    /**
+     * <code>Unknown = 8;</code>
+     */
+    Unknown(8),
     UNRECOGNIZED(-1),
     ;
 
@@ -161,13 +169,21 @@ private static final long serialVersionUID = 0L;
      */
     public static final int delUser_VALUE = 4;
     /**
-     * <code>logOut = 5;</code>
+     * <code>delThread = 5;</code>
      */
-    public static final int logOut_VALUE = 5;
+    public static final int delThread_VALUE = 5;
     /**
-     * <code>Unknown = 6;</code>
+     * <code>delPost = 6;</code>
      */
-    public static final int Unknown_VALUE = 6;
+    public static final int delPost_VALUE = 6;
+    /**
+     * <code>logOut = 7;</code>
+     */
+    public static final int logOut_VALUE = 7;
+    /**
+     * <code>Unknown = 8;</code>
+     */
+    public static final int Unknown_VALUE = 8;
 
 
     public final int getNumber() {
@@ -193,8 +209,10 @@ private static final long serialVersionUID = 0L;
         case 2: return genPosts;
         case 3: return chPassword;
         case 4: return delUser;
-        case 5: return logOut;
-        case 6: return Unknown;
+        case 5: return delThread;
+        case 6: return delPost;
+        case 7: return logOut;
+        case 8: return Unknown;
         default: return null;
       }
     }

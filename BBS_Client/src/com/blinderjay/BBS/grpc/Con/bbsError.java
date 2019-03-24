@@ -97,48 +97,56 @@ private static final long serialVersionUID = 0L;
   public enum errType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>Invalid = 0;</code>
+     * <code>err0 = 0;</code>
      */
-    Invalid(0),
+    err0(0),
     /**
-     * <code>NoResource = 1;</code>
+     * <code>Invalid = 1;</code>
      */
-    NoResource(1),
+    Invalid(1),
     /**
-     * <code>Duplicate = 2;</code>
+     * <code>NoResource = 2;</code>
      */
-    Duplicate(2),
+    NoResource(2),
     /**
-     * <code>InfomationUncomplete = 3;</code>
+     * <code>Duplicate = 3;</code>
      */
-    InfomationUncomplete(3),
+    Duplicate(3),
     /**
-     * <code>Unknown = 4;</code>
+     * <code>InfomationUncomplete = 4;</code>
      */
-    Unknown(4),
+    InfomationUncomplete(4),
+    /**
+     * <code>Unknown = 5;</code>
+     */
+    Unknown(5),
     UNRECOGNIZED(-1),
     ;
 
     /**
-     * <code>Invalid = 0;</code>
+     * <code>err0 = 0;</code>
      */
-    public static final int Invalid_VALUE = 0;
+    public static final int err0_VALUE = 0;
     /**
-     * <code>NoResource = 1;</code>
+     * <code>Invalid = 1;</code>
      */
-    public static final int NoResource_VALUE = 1;
+    public static final int Invalid_VALUE = 1;
     /**
-     * <code>Duplicate = 2;</code>
+     * <code>NoResource = 2;</code>
      */
-    public static final int Duplicate_VALUE = 2;
+    public static final int NoResource_VALUE = 2;
     /**
-     * <code>InfomationUncomplete = 3;</code>
+     * <code>Duplicate = 3;</code>
      */
-    public static final int InfomationUncomplete_VALUE = 3;
+    public static final int Duplicate_VALUE = 3;
     /**
-     * <code>Unknown = 4;</code>
+     * <code>InfomationUncomplete = 4;</code>
      */
-    public static final int Unknown_VALUE = 4;
+    public static final int InfomationUncomplete_VALUE = 4;
+    /**
+     * <code>Unknown = 5;</code>
+     */
+    public static final int Unknown_VALUE = 5;
 
 
     public final int getNumber() {
@@ -159,11 +167,12 @@ private static final long serialVersionUID = 0L;
 
     public static errType forNumber(int value) {
       switch (value) {
-        case 0: return Invalid;
-        case 1: return NoResource;
-        case 2: return Duplicate;
-        case 3: return InfomationUncomplete;
-        case 4: return Unknown;
+        case 0: return err0;
+        case 1: return Invalid;
+        case 2: return NoResource;
+        case 3: return Duplicate;
+        case 4: return InfomationUncomplete;
+        case 5: return Unknown;
         default: return null;
       }
     }
@@ -278,7 +287,7 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (errtype_ != com.blinderjay.BBS.grpc.Con.bbsError.errType.Invalid.getNumber()) {
+    if (errtype_ != com.blinderjay.BBS.grpc.Con.bbsError.errType.err0.getNumber()) {
       output.writeEnum(1, errtype_);
     }
     if (!getErrInfoBytes().isEmpty()) {
@@ -292,7 +301,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (errtype_ != com.blinderjay.BBS.grpc.Con.bbsError.errType.Invalid.getNumber()) {
+    if (errtype_ != com.blinderjay.BBS.grpc.Con.bbsError.errType.err0.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, errtype_);
     }

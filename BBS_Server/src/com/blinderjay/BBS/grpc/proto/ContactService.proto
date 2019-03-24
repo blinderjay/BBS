@@ -60,11 +60,12 @@ message bbsTime{
 //error
 message bbsError {
     enum errType {
-        Invalid = 0;
-        NoResource = 1;
-        Duplicate = 2;
-        InfomationUncomplete = 3;
-        Unknown = 4;
+        err0 = 0;
+        Invalid = 1;
+        NoResource = 2;
+        Duplicate = 3;
+        InfomationUncomplete = 4;
+        Unknown = 5;
     }
     errType  errtype= 1;
     string errInfo = 2;
@@ -79,8 +80,10 @@ message bbsClientReq{
         genPosts = 2;
         chPassword = 3;
         delUser=4;
-        logOut = 5;
-        Unknown = 6;
+        delThread=5;
+        delPost=6;
+        logOut = 7;
+        Unknown = 8;
     }
     reqType reqtype = 2;
     string arg = 3;
