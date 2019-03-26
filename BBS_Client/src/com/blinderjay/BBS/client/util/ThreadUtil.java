@@ -21,27 +21,26 @@ import java.util.logging.Logger;
  * @author blinderjay
  */
 public class ThreadUtil {
-    
+
 //    public ThreadUtil(bbsThread bt){
 //        
 //    }
-    
-    public static  boolean  delete(bbsThread bt){
-     
-                    return    delete(bt.getTid()) ? true:false;
-  
+    public static boolean delete(bbsThread bt) {
+
+        return delete(bt.getTid()) ? true : false;
 
     }
-        public static  boolean  delete(int tid){
-                BBS_ConGrpc.BBS_ConBlockingStub blockingStub = BBS_ConGrpc.newBlockingStub(bbsChannel.getchannel());
-        bbsClientReq req = bbsClientReq.newBuilder().setCookie(CookieUtil.build_bbsCookie()).setReqtype(bbsClientReq.reqType.delThread).setArg(String.valueOf(tid)) .build();
-       bbsServerRes resp = blockingStub.delThread(req);
-            try {
+
+    public static boolean delete(int tid) {
+        BBS_ConGrpc.BBS_ConBlockingStub blockingStub = BBS_ConGrpc.newBlockingStub(bbsChannel.getchannel());
+        bbsClientReq req = bbsClientReq.newBuilder().setCookie(CookieUtil.build_bbsCookie()).setReqtype(bbsClientReq.reqType.delThread).setArg(String.valueOf(tid)).build();
+        bbsServerRes resp = blockingStub.delThread(req);
+        try {
             bbsChannel.shutdown();
         } catch (InterruptedException ex) {
             Logger.getLogger(ThreadUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
-   return  resp.getErr().getErrtype()==bbsError.errType.err0? true:false;
-   
+        return resp.getErr().getErrtype() == bbsError.errType.err0 ? true : false;
+
     }
 }

@@ -46,7 +46,8 @@ public class bbsChannel {
         if (channel == null) {
             return getdefault();
         } else if (channel.isShutdown()) {
-            channel.resetConnectBackoff();
+               channel = ManagedChannelBuilder.forAddress(Address, Port).usePlaintext().build();
+//            channel.resetConnectBackoff();
         }
         return channel;
     }

@@ -13,3 +13,5 @@ what is function:
 password.getText().trim().isEmpty()
 ```
 
+## some special type
+bbsError.errType.UNRECOG....  can not be set

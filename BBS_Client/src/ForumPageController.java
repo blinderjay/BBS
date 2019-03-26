@@ -6,8 +6,10 @@
 
 import com.blinderjay.BBS.client.util.bbsChannel;
 import com.blinderjay.BBS.client.front.ThreadView;
+import com.blinderjay.BBS.client.util.CookieUtil;
 import com.blinderjay.BBS.grpc.Con.BBS_ConGrpc;
 import com.blinderjay.BBS.grpc.Con.bbsClientReq;
+import com.blinderjay.BBS.grpc.Con.bbsCookie;
 import com.blinderjay.BBS.grpc.Con.bbsThread;
 import java.net.URL;
 import java.util.Iterator;
@@ -33,6 +35,8 @@ public class ForumPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+                BBS_ConGrpc.BBS_ConBlockingStub blockingStub = BBS_ConGrpc.newBlockingStub(bbsChannel.getchannel());
+
         ThreadView tInit = new ThreadView(bbsThread.newBuilder().setContex("this is first one").build());
         tInit.addreply("csdcsdcsd");
         tInit.addreply("hellow world");

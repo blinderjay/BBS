@@ -84,15 +84,15 @@ public class ConServicePro extends BBS_ConGrpc.BBS_ConImplBase {
                                         req.getName()))
                         .setErr(bbsError.newBuilder().setErrtype(bbsError.errType.err0))
                         .build();
-                
-                   System.out.println("built response" );
+
+                System.out.println("built response");
 
             } else {
                 System.out.println("Password do not Match");
                 res = userInRes.newBuilder()
                         .setErr(
                                 bbsError.newBuilder()
-                                        .setErrtype(bbsError.errType.UNRECOGNIZED)
+                                        .setErrtype(bbsError.errType.Invalid)
                                         .setErrInfo("password not match")
                                         .build())
                         .build();
@@ -109,12 +109,15 @@ public class ConServicePro extends BBS_ConGrpc.BBS_ConImplBase {
     public void getThreads(bbsClientReq req, StreamObserver<bbsThread> responseObserver) {
         //check if you are alive 
         if (sessionPool.checkalive(req.getCookie())) {
+            System.out.println("checked alive");
             try (java.sql.Connection conn = new sqlConnection().connect()) {
                 java.sql.Statement stmt = conn.createStatement();
                 java.sql.ResultSet rs = stmt.executeQuery(String.format("SELECT * FROM threads WHERE uid = %d ;",
                         sessionPool.getSession(req.getCookie()).getuid()));
                 // ,sessionPool.getuid(req.getCookie())
+                                  System.out.println("connected to database to gen threads");
                 while (rs.next()) {
+                    System.out.println("got a thread from sql");
                     bbsThread res = bbsThread.newBuilder()
                             .setTid(rs.getInt("tid"))
                             .setErr(
@@ -125,7 +128,7 @@ public class ConServicePro extends BBS_ConGrpc.BBS_ConImplBase {
                             .build();
                     responseObserver.onNext(res);
                 }
-                responseObserver.onCompleted();
+           
             } catch (SQLException ex) {
             }
         } else {
@@ -133,13 +136,13 @@ public class ConServicePro extends BBS_ConGrpc.BBS_ConImplBase {
                     bbsThread.newBuilder()
                             .setErr(
                                     bbsError.newBuilder()
-                                            .setErrtype(bbsError.errType.UNRECOGNIZED)
+                                            .setErrtype(bbsError.errType.Invalid)
                                             .setErrInfo("Has not logged in")
                                             .build())
                             .build());
-            
 
         }
+             responseObserver.onCompleted();
     }
 }
 

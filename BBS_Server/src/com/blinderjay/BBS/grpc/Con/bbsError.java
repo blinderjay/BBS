@@ -117,9 +117,9 @@ private static final long serialVersionUID = 0L;
      */
     InfomationUncomplete(4),
     /**
-     * <code>Unknown = 5;</code>
+     * <code>NoSession = 5;</code>
      */
-    Unknown(5),
+    NoSession(5),
     UNRECOGNIZED(-1),
     ;
 
@@ -144,9 +144,9 @@ private static final long serialVersionUID = 0L;
      */
     public static final int InfomationUncomplete_VALUE = 4;
     /**
-     * <code>Unknown = 5;</code>
+     * <code>NoSession = 5;</code>
      */
-    public static final int Unknown_VALUE = 5;
+    public static final int NoSession_VALUE = 5;
 
 
     public final int getNumber() {
@@ -172,7 +172,7 @@ private static final long serialVersionUID = 0L;
         case 2: return NoResource;
         case 3: return Duplicate;
         case 4: return InfomationUncomplete;
-        case 5: return Unknown;
+        case 5: return NoSession;
         default: return null;
       }
     }

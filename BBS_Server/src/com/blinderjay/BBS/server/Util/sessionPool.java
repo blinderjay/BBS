@@ -14,8 +14,9 @@ import java.util.UUID;
  * @author blinderjay
  */
 public class sessionPool {
+    //static  object must be malloc memory when it has been stated
+    private static HashMap<UUID, bbsSession> sessionpool = new HashMap<>();
 
-    private static HashMap<UUID, bbsSession> sessionpool;
 
     public static bbsCookie createsession(UUID uuid, String name) {
         sessionpool.put(uuid, new bbsSession(uuid, name, userStatus.Alive));
@@ -39,7 +40,7 @@ public class sessionPool {
     }
 
     public static boolean checkalive(bbsCookie cookie) {
-        return cookie.getName().equals("_cooke")
+        return cookie.getName().equals("_cookie")
                 ? checkalive(cookie.getValue())
                 : false;
     }

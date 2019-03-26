@@ -36,7 +36,7 @@ public class ThreadInfo {
     public ThreadInfo(bbsThread bt) {
         this();
         this.id = new SimpleIntegerProperty(bt.getTid());
-        this.topic = new SimpleStringProperty(bt.getTopic());
+//        this.topic = new SimpleStringProperty(bt.getTopic());
         this.context = new SimpleStringProperty(bt.getContex());
 
     }

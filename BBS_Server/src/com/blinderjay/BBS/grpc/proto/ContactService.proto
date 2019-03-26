@@ -70,7 +70,7 @@ message bbsError {
         NoResource = 2;
         Duplicate = 3;
         InfomationUncomplete = 4;
-        Unknown = 5;
+        NoSession = 5;
     }
     errType  errtype= 1;
     string errInfo = 2;

@@ -58,6 +58,7 @@ public class bbsSession {
     }
 
     public void setalive() {
+        System.out.println("user status is:"+status.Alive.toString());
         this.status = userStatus.Alive;
     }
 
