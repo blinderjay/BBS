@@ -54,6 +54,19 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 10: {
+            com.blinderjay.BBS.grpc.Con.bbsCookie.Builder subBuilder = null;
+            if (cookie_ != null) {
+              subBuilder = cookie_.toBuilder();
+            }
+            cookie_ = input.readMessage(com.blinderjay.BBS.grpc.Con.bbsCookie.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(cookie_);
+              cookie_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 18: {
             com.blinderjay.BBS.grpc.Con.bbsError.Builder subBuilder = null;
             if (err_ != null) {
               subBuilder = err_.toBuilder();
@@ -66,29 +79,29 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 16: {
+          case 24: {
 
             pid_ = input.readInt32();
             break;
           }
-          case 24: {
+          case 32: {
 
             tid_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            user_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            contex_ = s;
+            user_ = s;
             break;
           }
           case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            contex_ = s;
+            break;
+          }
+          case 58: {
             com.blinderjay.BBS.grpc.Con.bbsTime.Builder subBuilder = null;
             if (time_ != null) {
               subBuilder = time_.toBuilder();
@@ -125,49 +138,70 @@ private static final long serialVersionUID = 0L;
             com.blinderjay.BBS.grpc.Con.bbsPost.class, com.blinderjay.BBS.grpc.Con.bbsPost.Builder.class);
   }
 
-  public static final int ERR_FIELD_NUMBER = 1;
+  public static final int COOKIE_FIELD_NUMBER = 1;
+  private com.blinderjay.BBS.grpc.Con.bbsCookie cookie_;
+  /**
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  public boolean hasCookie() {
+    return cookie_ != null;
+  }
+  /**
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  public com.blinderjay.BBS.grpc.Con.bbsCookie getCookie() {
+    return cookie_ == null ? com.blinderjay.BBS.grpc.Con.bbsCookie.getDefaultInstance() : cookie_;
+  }
+  /**
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  public com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder getCookieOrBuilder() {
+    return getCookie();
+  }
+
+  public static final int ERR_FIELD_NUMBER = 2;
   private com.blinderjay.BBS.grpc.Con.bbsError err_;
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsError err = 2;</code>
    */
   public boolean hasErr() {
     return err_ != null;
   }
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsError err = 2;</code>
    */
   public com.blinderjay.BBS.grpc.Con.bbsError getErr() {
     return err_ == null ? com.blinderjay.BBS.grpc.Con.bbsError.getDefaultInstance() : err_;
   }
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsError err = 2;</code>
    */
   public com.blinderjay.BBS.grpc.Con.bbsErrorOrBuilder getErrOrBuilder() {
     return getErr();
   }
 
-  public static final int PID_FIELD_NUMBER = 2;
+  public static final int PID_FIELD_NUMBER = 3;
   private int pid_;
   /**
-   * <code>int32 pid = 2;</code>
+   * <code>int32 pid = 3;</code>
    */
   public int getPid() {
     return pid_;
   }
 
-  public static final int TID_FIELD_NUMBER = 3;
+  public static final int TID_FIELD_NUMBER = 4;
   private int tid_;
   /**
-   * <code>int32 tid = 3;</code>
+   * <code>int32 tid = 4;</code>
    */
   public int getTid() {
     return tid_;
   }
 
-  public static final int USER_FIELD_NUMBER = 4;
+  public static final int USER_FIELD_NUMBER = 5;
   private volatile java.lang.Object user_;
   /**
-   * <code>string user = 4;</code>
+   * <code>string user = 5;</code>
    */
   public java.lang.String getUser() {
     java.lang.Object ref = user_;
@@ -182,7 +216,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string user = 4;</code>
+   * <code>string user = 5;</code>
    */
   public com.google.protobuf.ByteString
       getUserBytes() {
@@ -198,10 +232,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CONTEX_FIELD_NUMBER = 5;
+  public static final int CONTEX_FIELD_NUMBER = 6;
   private volatile java.lang.Object contex_;
   /**
-   * <code>string contex = 5;</code>
+   * <code>string contex = 6;</code>
    */
   public java.lang.String getContex() {
     java.lang.Object ref = contex_;
@@ -216,7 +250,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string contex = 5;</code>
+   * <code>string contex = 6;</code>
    */
   public com.google.protobuf.ByteString
       getContexBytes() {
@@ -232,22 +266,22 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TIME_FIELD_NUMBER = 6;
+  public static final int TIME_FIELD_NUMBER = 7;
   private com.blinderjay.BBS.grpc.Con.bbsTime time_;
   /**
-   * <code>.Con.bbsTime time = 6;</code>
+   * <code>.Con.bbsTime time = 7;</code>
    */
   public boolean hasTime() {
     return time_ != null;
   }
   /**
-   * <code>.Con.bbsTime time = 6;</code>
+   * <code>.Con.bbsTime time = 7;</code>
    */
   public com.blinderjay.BBS.grpc.Con.bbsTime getTime() {
     return time_ == null ? com.blinderjay.BBS.grpc.Con.bbsTime.getDefaultInstance() : time_;
   }
   /**
-   * <code>.Con.bbsTime time = 6;</code>
+   * <code>.Con.bbsTime time = 7;</code>
    */
   public com.blinderjay.BBS.grpc.Con.bbsTimeOrBuilder getTimeOrBuilder() {
     return getTime();
@@ -265,23 +299,26 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (cookie_ != null) {
+      output.writeMessage(1, getCookie());
+    }
     if (err_ != null) {
-      output.writeMessage(1, getErr());
+      output.writeMessage(2, getErr());
     }
     if (pid_ != 0) {
-      output.writeInt32(2, pid_);
+      output.writeInt32(3, pid_);
     }
     if (tid_ != 0) {
-      output.writeInt32(3, tid_);
+      output.writeInt32(4, tid_);
     }
     if (!getUserBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, user_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, user_);
     }
     if (!getContexBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, contex_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, contex_);
     }
     if (time_ != null) {
-      output.writeMessage(6, getTime());
+      output.writeMessage(7, getTime());
     }
     unknownFields.writeTo(output);
   }
@@ -291,27 +328,31 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (cookie_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getCookie());
+    }
     if (err_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getErr());
+        .computeMessageSize(2, getErr());
     }
     if (pid_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, pid_);
+        .computeInt32Size(3, pid_);
     }
     if (tid_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, tid_);
+        .computeInt32Size(4, tid_);
     }
     if (!getUserBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, user_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, user_);
     }
     if (!getContexBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, contex_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, contex_);
     }
     if (time_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getTime());
+        .computeMessageSize(7, getTime());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -329,6 +370,11 @@ private static final long serialVersionUID = 0L;
     com.blinderjay.BBS.grpc.Con.bbsPost other = (com.blinderjay.BBS.grpc.Con.bbsPost) obj;
 
     boolean result = true;
+    result = result && (hasCookie() == other.hasCookie());
+    if (hasCookie()) {
+      result = result && getCookie()
+          .equals(other.getCookie());
+    }
     result = result && (hasErr() == other.hasErr());
     if (hasErr()) {
       result = result && getErr()
@@ -358,6 +404,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasCookie()) {
+      hash = (37 * hash) + COOKIE_FIELD_NUMBER;
+      hash = (53 * hash) + getCookie().hashCode();
+    }
     if (hasErr()) {
       hash = (37 * hash) + ERR_FIELD_NUMBER;
       hash = (53 * hash) + getErr().hashCode();
@@ -503,6 +553,12 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
+      if (cookieBuilder_ == null) {
+        cookie_ = null;
+      } else {
+        cookie_ = null;
+        cookieBuilder_ = null;
+      }
       if (errBuilder_ == null) {
         err_ = null;
       } else {
@@ -545,6 +601,11 @@ private static final long serialVersionUID = 0L;
 
     public com.blinderjay.BBS.grpc.Con.bbsPost buildPartial() {
       com.blinderjay.BBS.grpc.Con.bbsPost result = new com.blinderjay.BBS.grpc.Con.bbsPost(this);
+      if (cookieBuilder_ == null) {
+        result.cookie_ = cookie_;
+      } else {
+        result.cookie_ = cookieBuilder_.build();
+      }
       if (errBuilder_ == null) {
         result.err_ = err_;
       } else {
@@ -600,6 +661,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.blinderjay.BBS.grpc.Con.bbsPost other) {
       if (other == com.blinderjay.BBS.grpc.Con.bbsPost.getDefaultInstance()) return this;
+      if (other.hasCookie()) {
+        mergeCookie(other.getCookie());
+      }
       if (other.hasErr()) {
         mergeErr(other.getErr());
       }
@@ -647,17 +711,134 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.blinderjay.BBS.grpc.Con.bbsCookie cookie_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.blinderjay.BBS.grpc.Con.bbsCookie, com.blinderjay.BBS.grpc.Con.bbsCookie.Builder, com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder> cookieBuilder_;
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public boolean hasCookie() {
+      return cookieBuilder_ != null || cookie_ != null;
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public com.blinderjay.BBS.grpc.Con.bbsCookie getCookie() {
+      if (cookieBuilder_ == null) {
+        return cookie_ == null ? com.blinderjay.BBS.grpc.Con.bbsCookie.getDefaultInstance() : cookie_;
+      } else {
+        return cookieBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public Builder setCookie(com.blinderjay.BBS.grpc.Con.bbsCookie value) {
+      if (cookieBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        cookie_ = value;
+        onChanged();
+      } else {
+        cookieBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public Builder setCookie(
+        com.blinderjay.BBS.grpc.Con.bbsCookie.Builder builderForValue) {
+      if (cookieBuilder_ == null) {
+        cookie_ = builderForValue.build();
+        onChanged();
+      } else {
+        cookieBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public Builder mergeCookie(com.blinderjay.BBS.grpc.Con.bbsCookie value) {
+      if (cookieBuilder_ == null) {
+        if (cookie_ != null) {
+          cookie_ =
+            com.blinderjay.BBS.grpc.Con.bbsCookie.newBuilder(cookie_).mergeFrom(value).buildPartial();
+        } else {
+          cookie_ = value;
+        }
+        onChanged();
+      } else {
+        cookieBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public Builder clearCookie() {
+      if (cookieBuilder_ == null) {
+        cookie_ = null;
+        onChanged();
+      } else {
+        cookie_ = null;
+        cookieBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public com.blinderjay.BBS.grpc.Con.bbsCookie.Builder getCookieBuilder() {
+      
+      onChanged();
+      return getCookieFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder getCookieOrBuilder() {
+      if (cookieBuilder_ != null) {
+        return cookieBuilder_.getMessageOrBuilder();
+      } else {
+        return cookie_ == null ?
+            com.blinderjay.BBS.grpc.Con.bbsCookie.getDefaultInstance() : cookie_;
+      }
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.blinderjay.BBS.grpc.Con.bbsCookie, com.blinderjay.BBS.grpc.Con.bbsCookie.Builder, com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder> 
+        getCookieFieldBuilder() {
+      if (cookieBuilder_ == null) {
+        cookieBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.blinderjay.BBS.grpc.Con.bbsCookie, com.blinderjay.BBS.grpc.Con.bbsCookie.Builder, com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder>(
+                getCookie(),
+                getParentForChildren(),
+                isClean());
+        cookie_ = null;
+      }
+      return cookieBuilder_;
+    }
+
     private com.blinderjay.BBS.grpc.Con.bbsError err_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.blinderjay.BBS.grpc.Con.bbsError, com.blinderjay.BBS.grpc.Con.bbsError.Builder, com.blinderjay.BBS.grpc.Con.bbsErrorOrBuilder> errBuilder_;
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public boolean hasErr() {
       return errBuilder_ != null || err_ != null;
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public com.blinderjay.BBS.grpc.Con.bbsError getErr() {
       if (errBuilder_ == null) {
@@ -667,7 +848,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public Builder setErr(com.blinderjay.BBS.grpc.Con.bbsError value) {
       if (errBuilder_ == null) {
@@ -683,7 +864,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public Builder setErr(
         com.blinderjay.BBS.grpc.Con.bbsError.Builder builderForValue) {
@@ -697,7 +878,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public Builder mergeErr(com.blinderjay.BBS.grpc.Con.bbsError value) {
       if (errBuilder_ == null) {
@@ -715,7 +896,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public Builder clearErr() {
       if (errBuilder_ == null) {
@@ -729,7 +910,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public com.blinderjay.BBS.grpc.Con.bbsError.Builder getErrBuilder() {
       
@@ -737,7 +918,7 @@ private static final long serialVersionUID = 0L;
       return getErrFieldBuilder().getBuilder();
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public com.blinderjay.BBS.grpc.Con.bbsErrorOrBuilder getErrOrBuilder() {
       if (errBuilder_ != null) {
@@ -748,7 +929,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.blinderjay.BBS.grpc.Con.bbsError, com.blinderjay.BBS.grpc.Con.bbsError.Builder, com.blinderjay.BBS.grpc.Con.bbsErrorOrBuilder> 
@@ -766,13 +947,13 @@ private static final long serialVersionUID = 0L;
 
     private int pid_ ;
     /**
-     * <code>int32 pid = 2;</code>
+     * <code>int32 pid = 3;</code>
      */
     public int getPid() {
       return pid_;
     }
     /**
-     * <code>int32 pid = 2;</code>
+     * <code>int32 pid = 3;</code>
      */
     public Builder setPid(int value) {
       
@@ -781,7 +962,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 pid = 2;</code>
+     * <code>int32 pid = 3;</code>
      */
     public Builder clearPid() {
       
@@ -792,13 +973,13 @@ private static final long serialVersionUID = 0L;
 
     private int tid_ ;
     /**
-     * <code>int32 tid = 3;</code>
+     * <code>int32 tid = 4;</code>
      */
     public int getTid() {
       return tid_;
     }
     /**
-     * <code>int32 tid = 3;</code>
+     * <code>int32 tid = 4;</code>
      */
     public Builder setTid(int value) {
       
@@ -807,7 +988,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 tid = 3;</code>
+     * <code>int32 tid = 4;</code>
      */
     public Builder clearTid() {
       
@@ -818,7 +999,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object user_ = "";
     /**
-     * <code>string user = 4;</code>
+     * <code>string user = 5;</code>
      */
     public java.lang.String getUser() {
       java.lang.Object ref = user_;
@@ -833,7 +1014,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string user = 4;</code>
+     * <code>string user = 5;</code>
      */
     public com.google.protobuf.ByteString
         getUserBytes() {
@@ -849,7 +1030,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string user = 4;</code>
+     * <code>string user = 5;</code>
      */
     public Builder setUser(
         java.lang.String value) {
@@ -862,7 +1043,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string user = 4;</code>
+     * <code>string user = 5;</code>
      */
     public Builder clearUser() {
       
@@ -871,7 +1052,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string user = 4;</code>
+     * <code>string user = 5;</code>
      */
     public Builder setUserBytes(
         com.google.protobuf.ByteString value) {
@@ -887,7 +1068,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object contex_ = "";
     /**
-     * <code>string contex = 5;</code>
+     * <code>string contex = 6;</code>
      */
     public java.lang.String getContex() {
       java.lang.Object ref = contex_;
@@ -902,7 +1083,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string contex = 5;</code>
+     * <code>string contex = 6;</code>
      */
     public com.google.protobuf.ByteString
         getContexBytes() {
@@ -918,7 +1099,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string contex = 5;</code>
+     * <code>string contex = 6;</code>
      */
     public Builder setContex(
         java.lang.String value) {
@@ -931,7 +1112,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string contex = 5;</code>
+     * <code>string contex = 6;</code>
      */
     public Builder clearContex() {
       
@@ -940,7 +1121,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string contex = 5;</code>
+     * <code>string contex = 6;</code>
      */
     public Builder setContexBytes(
         com.google.protobuf.ByteString value) {
@@ -958,13 +1139,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.blinderjay.BBS.grpc.Con.bbsTime, com.blinderjay.BBS.grpc.Con.bbsTime.Builder, com.blinderjay.BBS.grpc.Con.bbsTimeOrBuilder> timeBuilder_;
     /**
-     * <code>.Con.bbsTime time = 6;</code>
+     * <code>.Con.bbsTime time = 7;</code>
      */
     public boolean hasTime() {
       return timeBuilder_ != null || time_ != null;
     }
     /**
-     * <code>.Con.bbsTime time = 6;</code>
+     * <code>.Con.bbsTime time = 7;</code>
      */
     public com.blinderjay.BBS.grpc.Con.bbsTime getTime() {
       if (timeBuilder_ == null) {
@@ -974,7 +1155,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.Con.bbsTime time = 6;</code>
+     * <code>.Con.bbsTime time = 7;</code>
      */
     public Builder setTime(com.blinderjay.BBS.grpc.Con.bbsTime value) {
       if (timeBuilder_ == null) {
@@ -990,7 +1171,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsTime time = 6;</code>
+     * <code>.Con.bbsTime time = 7;</code>
      */
     public Builder setTime(
         com.blinderjay.BBS.grpc.Con.bbsTime.Builder builderForValue) {
@@ -1004,7 +1185,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsTime time = 6;</code>
+     * <code>.Con.bbsTime time = 7;</code>
      */
     public Builder mergeTime(com.blinderjay.BBS.grpc.Con.bbsTime value) {
       if (timeBuilder_ == null) {
@@ -1022,7 +1203,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsTime time = 6;</code>
+     * <code>.Con.bbsTime time = 7;</code>
      */
     public Builder clearTime() {
       if (timeBuilder_ == null) {
@@ -1036,7 +1217,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsTime time = 6;</code>
+     * <code>.Con.bbsTime time = 7;</code>
      */
     public com.blinderjay.BBS.grpc.Con.bbsTime.Builder getTimeBuilder() {
       
@@ -1044,7 +1225,7 @@ private static final long serialVersionUID = 0L;
       return getTimeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.Con.bbsTime time = 6;</code>
+     * <code>.Con.bbsTime time = 7;</code>
      */
     public com.blinderjay.BBS.grpc.Con.bbsTimeOrBuilder getTimeOrBuilder() {
       if (timeBuilder_ != null) {
@@ -1055,7 +1236,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.Con.bbsTime time = 6;</code>
+     * <code>.Con.bbsTime time = 7;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.blinderjay.BBS.grpc.Con.bbsTime, com.blinderjay.BBS.grpc.Con.bbsTime.Builder, com.blinderjay.BBS.grpc.Con.bbsTimeOrBuilder> 

@@ -8,22 +8,30 @@ public interface bbsUserInfoOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  boolean hasCookie();
+  /**
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  com.blinderjay.BBS.grpc.Con.bbsCookie getCookie();
+  /**
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder getCookieOrBuilder();
+
+  /**
+   * <code>.Con.bbsError err = 2;</code>
    */
   boolean hasErr();
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsError err = 2;</code>
    */
   com.blinderjay.BBS.grpc.Con.bbsError getErr();
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsError err = 2;</code>
    */
   com.blinderjay.BBS.grpc.Con.bbsErrorOrBuilder getErrOrBuilder();
-
-  /**
-   * <code>int32 uid = 2;</code>
-   */
-  int getUid();
 
   /**
    * <code>string name = 3;</code>

@@ -5,10 +5,12 @@
  */
 
 import com.blinderjay.BBS.client.util.bbsChannel;
-import com.blinderjay.BBS.client.util.bbsProp;
 import com.blinderjay.BBS.client.front.LoginDialog;
+import com.blinderjay.BBS.client.util.CookieUtil;
 import com.blinderjay.BBS.grpc.Con.BBS_ConGrpc;
+import com.blinderjay.BBS.grpc.Con.bbsError;
 import com.blinderjay.BBS.grpc.Con.userInRes;
+import com.blinderjay.BBS.grpc.Con.userLoginReq;
 import com.blinderjay.BBS.grpc.Con.userRegisReq;
 import java.io.IOException;
 import java.net.URL;
@@ -56,39 +58,73 @@ public class MainPageController implements Initializable {
     }
 
     @FXML
-    private void toaccount(ActionEvent event) {
-        if (bbsProp.haslogedin()) {
+    private void toaccount(ActionEvent event) throws InterruptedException {
+        if (CookieUtil.checkloged()) {
             mainbody.setCenter(accountpage);
         } else {
-            LoginDialog dialog = new LoginDialog();
-            Optional<Pair<ButtonType, Pair<String, String>>> result = dialog.showAndWait();
-            result.ifPresent(userpass -> {
-                try{
-                       if (userpass.getKey() == dialog.loginButtonType) {
-                } else if (userpass.getKey() == dialog.signupButtonType) {
-                    BBS_ConGrpc.BBS_ConBlockingStub blockingStub = BBS_ConGrpc.newBlockingStub(bbsChannel.getchannel());
-                    userRegisReq req = userRegisReq.newBuilder()
-                            .setName(userpass.getValue().getValue())
-                            .setPass(userpass.getValue().getValue())
-                            .build();
-                    try {  userInRes res = blockingStub.userRegister(req); } catch (Exception e) {  }
-                }else {};
-                }catch(Exception e){}
-            });
-            try {
-                bbsChannel.shutdown();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
-            }catch(NullPointerException ex){
-                Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
+            if(alertNotLog()){
+          
             }
-        
+
         }
     }
 
     @FXML
-    private void tomanage(ActionEvent event) {
-        mainbody.setCenter(managepage);
+    private void tomanage(ActionEvent event) throws InterruptedException {
+        if (CookieUtil.checkloged()) {
+             mainbody.setCenter(managepage);
+        } else if(   alertNotLog()){
+             mainbody.setCenter(managepage);
+        }else{
+            return;
+        }
+
+    }
+
+    public boolean alertNotLog() throws InterruptedException {
+
+        //create dialog window
+        Boolean toreturn = null;
+        LoginDialog dialog = new LoginDialog();
+        Optional<Pair<ButtonType, Pair<String, String>>> result = dialog.showAndWait();
+        userInRes res = null;
+        Pair<ButtonType, Pair<String, String>> resultV = result.get();
+        
+        System.out.println(93);
+        //get value and handle it
+        try {
+            BBS_ConGrpc.BBS_ConBlockingStub blockingStub = BBS_ConGrpc.newBlockingStub(bbsChannel.getchannel());
+            if (resultV.getKey() == dialog.loginButtonType) {
+                
+                       System.out.println(99);
+                userLoginReq req = userLoginReq.newBuilder()
+                        .setName(resultV.getValue().getKey())
+                        .setPass(resultV.getValue().getValue())
+                        .build();
+                
+                              System.out.println(105);
+                res = blockingStub.userLogin(req);
+                              System.out.println(107);
+
+                toreturn = res.getErr().getErrtype() == bbsError.errType.err0;
+                
+
+            } else if (resultV.getKey() == dialog.signupButtonType) {
+
+                userRegisReq req = userRegisReq.newBuilder()
+                        .setName(resultV.getValue().getKey())
+                        .setPass(resultV.getValue().getValue())
+                        .build();
+                res = blockingStub.userRegister(req);
+                toreturn = res.getErr().getErrtype() == bbsError.errType.err0;
+            } else {
+                toreturn = false;
+            };
+            CookieUtil.setCookie(res.getCookie());
+        } finally{
+             bbsChannel.shutdown();
+        }
+        return toreturn;
     }
 
 }

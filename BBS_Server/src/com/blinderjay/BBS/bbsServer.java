@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.blinderjay.BBS.server;
+package com.blinderjay.BBS;
 
+import com.blinderjay.BBS.server.ConServicePro;
+import com.blinderjay.BBS.server.GrpcServer;
 import java.io.IOException;
 
 

@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="FxApp"/>
+        <group name="FxApp">
+            <file>file:/home/blinderjay/MyPro/BBS/BBS_Server/src/com/blinderjay/BBS/server/Util/bbsSession.java</file>
+            <file>file:/home/blinderjay/MyPro/BBS/BBS_Server/src/com/blinderjay/BBS/server/ConServicePro.java</file>
+            <file>file:/home/blinderjay/MyPro/BBS/BBS_Server/src/com/blinderjay/BBS/grpc/proto/ContactService.proto</file>
+            <file>file:/home/blinderjay/MyPro/BBS/BBS_Server/src/com/blinderjay/BBS/bbsServer.java</file>
+            <file>file:/home/blinderjay/MyPro/BBS/BBS_Server/src/com/blinderjay/BBS/server/Util/sessionPool.java</file>
+            <file>file:/home/blinderjay/MyPro/BBS/BBS_Server/src/com/blinderjay/sql/sqlConnection.java</file>
+            <file>file:/home/blinderjay/MyPro/BBS/BBS_Server/test/testString.java</file>
+            <file>file:/home/blinderjay/MyPro/BBS/BBS_Server/src/com/blinderjay/BBS/server/ConServiceProBak.java</file>
+            <file>file:/home/blinderjay/MyPro/BBS/BBS_Server/test/testConnect_Grpc.java</file>
+        </group>
     </open-files>
 </project-private>

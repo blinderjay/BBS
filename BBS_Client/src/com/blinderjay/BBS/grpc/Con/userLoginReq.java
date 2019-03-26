@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private userLoginReq() {
-    email_ = "";
+    name_ = "";
     pass_ = "";
   }
 
@@ -54,7 +54,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            email_ = s;
+            name_ = s;
             break;
           }
           case 18: {
@@ -87,34 +87,34 @@ private static final long serialVersionUID = 0L;
             com.blinderjay.BBS.grpc.Con.userLoginReq.class, com.blinderjay.BBS.grpc.Con.userLoginReq.Builder.class);
   }
 
-  public static final int EMAIL_FIELD_NUMBER = 1;
-  private volatile java.lang.Object email_;
+  public static final int NAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object name_;
   /**
-   * <code>string email = 1;</code>
+   * <code>string name = 1;</code>
    */
-  public java.lang.String getEmail() {
-    java.lang.Object ref = email_;
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      email_ = s;
+      name_ = s;
       return s;
     }
   }
   /**
-   * <code>string email = 1;</code>
+   * <code>string name = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getEmailBytes() {
-    java.lang.Object ref = email_;
+      getNameBytes() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      email_ = b;
+      name_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -167,8 +167,8 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getEmailBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, email_);
+    if (!getNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     if (!getPassBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, pass_);
@@ -181,8 +181,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getEmailBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, email_);
+    if (!getNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     if (!getPassBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, pass_);
@@ -203,8 +203,8 @@ private static final long serialVersionUID = 0L;
     com.blinderjay.BBS.grpc.Con.userLoginReq other = (com.blinderjay.BBS.grpc.Con.userLoginReq) obj;
 
     boolean result = true;
-    result = result && getEmail()
-        .equals(other.getEmail());
+    result = result && getName()
+        .equals(other.getName());
     result = result && getPass()
         .equals(other.getPass());
     result = result && unknownFields.equals(other.unknownFields);
@@ -218,8 +218,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + EMAIL_FIELD_NUMBER;
-    hash = (53 * hash) + getEmail().hashCode();
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + PASS_FIELD_NUMBER;
     hash = (53 * hash) + getPass().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -351,7 +351,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      email_ = "";
+      name_ = "";
 
       pass_ = "";
 
@@ -377,7 +377,7 @@ private static final long serialVersionUID = 0L;
 
     public com.blinderjay.BBS.grpc.Con.userLoginReq buildPartial() {
       com.blinderjay.BBS.grpc.Con.userLoginReq result = new com.blinderjay.BBS.grpc.Con.userLoginReq(this);
-      result.email_ = email_;
+      result.name_ = name_;
       result.pass_ = pass_;
       onBuilt();
       return result;
@@ -420,8 +420,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.blinderjay.BBS.grpc.Con.userLoginReq other) {
       if (other == com.blinderjay.BBS.grpc.Con.userLoginReq.getDefaultInstance()) return this;
-      if (!other.getEmail().isEmpty()) {
-        email_ = other.email_;
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
         onChanged();
       }
       if (!other.getPass().isEmpty()) {
@@ -455,71 +455,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object email_ = "";
+    private java.lang.Object name_ = "";
     /**
-     * <code>string email = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public java.lang.String getEmail() {
-      java.lang.Object ref = email_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        email_ = s;
+        name_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string email = 1;</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getEmailBytes() {
-      java.lang.Object ref = email_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        email_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string email = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public Builder setEmail(
+    public Builder setName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      email_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string email = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public Builder clearEmail() {
+    public Builder clearName() {
       
-      email_ = getDefaultInstance().getEmail();
+      name_ = getDefaultInstance().getName();
       onChanged();
       return this;
     }
     /**
-     * <code>string email = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public Builder setEmailBytes(
+    public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      email_ = value;
+      name_ = value;
       onChanged();
       return this;
     }

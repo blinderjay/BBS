@@ -106,40 +106,44 @@ public final class ContactService {
       "erRes\022\032\n\003err\030\001 \001(\0132\r.Con.bbsError\022\014\n\004mes" +
       "s\030\002 \001(\t\"F\n\014userRegisReq\022\r\n\005email\030\001 \001(\t\022\014" +
       "\n\004pass\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\013\n\003des\030\004 \001(\t\"" +
-      "+\n\014userLoginReq\022\r\n\005email\030\001 \001(\t\022\014\n\004pass\030\002" +
-      " \001(\t\"G\n\tuserInRes\022\032\n\003err\030\001 \001(\0132\r.Con.bbs" +
-      "Error\022\036\n\006cookie\030\002 \001(\0132\016.Con.bbsCookie\"x\n" +
-      "\013bbsUserInfo\022\032\n\003err\030\001 \001(\0132\r.Con.bbsError" +
-      "\022\013\n\003uid\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\r\n\005email\030\004 \001" +
-      "(\t\022#\n\rlastlogintime\030\005 \001(\0132\014.Con.bbsTime\"" +
-      "}\n\tbbsThread\022\032\n\003err\030\001 \001(\0132\r.Con.bbsError" +
-      "\022\013\n\003tid\030\002 \001(\005\022\014\n\004user\030\003 \001(\t\022\r\n\005topic\030\004 \001" +
-      "(\t\022\016\n\006contex\030\005 \001(\t\022\032\n\004time\030\006 \001(\0132\014.Con.b" +
-      "bsTime\"y\n\007bbsPost\022\032\n\003err\030\001 \001(\0132\r.Con.bbs" +
-      "Error\022\013\n\003pid\030\002 \001(\005\022\013\n\003tid\030\003 \001(\005\022\014\n\004user\030" +
-      "\004 \001(\t\022\016\n\006contex\030\005 \001(\t\022\032\n\004time\030\006 \001(\0132\014.Co" +
-      "n.bbsTime\"-\n\013userinfoReq\022\036\n\006cookie\030\001 \001(\013" +
-      "2\016.Con.bbsCookie\"G\n\ruserinfoReply\022\032\n\003err" +
-      "\030\001 \001(\0132\r.Con.bbsError\022\r\n\005email\030\002 \001(\t\022\013\n\003" +
-      "des\030\003 \001(\t2\260\005\n\007BBS_Con\0223\n\014userRegister\022\021." +
-      "Con.userRegisReq\032\016.Con.userInRes\"\000\0220\n\tus" +
-      "erLogin\022\021.Con.userLoginReq\032\016.Con.userInR" +
-      "es\"\000\0224\n\nuserLogout\022\021.Con.bbsClientReq\032\021." +
-      "Con.bbsServerRes\"\000\0224\n\013getUserInfo\022\021.Con." +
-      "bbsClientReq\032\020.Con.bbsUserInfo\"\000\0223\n\ngetT" +
-      "hreads\022\021.Con.bbsClientReq\032\016.Con.bbsThrea" +
-      "d\"\0000\001\022/\n\010genPosts\022\021.Con.bbsClientReq\032\014.C" +
-      "on.bbsPost\"\0000\001\0228\n\017refreshUserInfo\022\020.Con." +
-      "bbsUserInfo\032\021.Con.bbsServerRes\"\000\0221\n\npush" +
-      "Thread\022\016.Con.bbsThread\032\021.Con.bbsServerRe" +
-      "s\"\000\022.\n\tpushPosts\022\014.Con.bbsPost\032\021.Con.bbs" +
-      "ServerRes\"\000\0223\n\tdelThread\022\021.Con.bbsClient" +
-      "Req\032\021.Con.bbsServerRes\"\000\0221\n\007delPost\022\021.Co" +
-      "n.bbsClientReq\032\021.Con.bbsServerRes\"\000\0224\n\nc" +
-      "hPassword\022\021.Con.bbsClientReq\032\021.Con.bbsSe" +
-      "rverRes\"\000\0221\n\007getinfo\022\020.Con.userinfoReq\032\022" +
-      ".Con.userinfoReply\"\000B\037\n\033com.blinderjay.B" +
-      "BS.grpc.ConP\001b\006proto3"
+      "*\n\014userLoginReq\022\014\n\004name\030\001 \001(\t\022\014\n\004pass\030\002 " +
+      "\001(\t\"G\n\tuserInRes\022\032\n\003err\030\001 \001(\0132\r.Con.bbsE" +
+      "rror\022\036\n\006cookie\030\002 \001(\0132\016.Con.bbsCookie\"\213\001\n" +
+      "\013bbsUserInfo\022\036\n\006cookie\030\001 \001(\0132\016.Con.bbsCo" +
+      "okie\022\032\n\003err\030\002 \001(\0132\r.Con.bbsError\022\014\n\004name" +
+      "\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022#\n\rlastlogintime\030\005" +
+      " \001(\0132\014.Con.bbsTime\"\235\001\n\tbbsThread\022\036\n\006cook" +
+      "ie\030\001 \001(\0132\016.Con.bbsCookie\022\032\n\003err\030\002 \001(\0132\r." +
+      "Con.bbsError\022\013\n\003tid\030\003 \001(\005\022\014\n\004user\030\004 \001(\t\022" +
+      "\r\n\005topic\030\005 \001(\t\022\016\n\006contex\030\006 \001(\t\022\032\n\004time\030\007" +
+      " \001(\0132\014.Con.bbsTime\"\231\001\n\007bbsPost\022\036\n\006cookie" +
+      "\030\001 \001(\0132\016.Con.bbsCookie\022\032\n\003err\030\002 \001(\0132\r.Co" +
+      "n.bbsError\022\013\n\003pid\030\003 \001(\005\022\013\n\003tid\030\004 \001(\005\022\014\n\004" +
+      "user\030\005 \001(\t\022\016\n\006contex\030\006 \001(\t\022\032\n\004time\030\007 \001(\013" +
+      "2\014.Con.bbsTime\"-\n\013userinfoReq\022\036\n\006cookie\030" +
+      "\001 \001(\0132\016.Con.bbsCookie\"G\n\ruserinfoReply\022\032" +
+      "\n\003err\030\001 \001(\0132\r.Con.bbsError\022\r\n\005email\030\002 \001(" +
+      "\t\022\013\n\003des\030\003 \001(\t2\350\005\n\007BBS_Con\0223\n\014userRegist" +
+      "er\022\021.Con.userRegisReq\032\016.Con.userInRes\"\000\022" +
+      "0\n\tuserLogin\022\021.Con.userLoginReq\032\016.Con.us" +
+      "erInRes\"\000\0226\n\rgetAllThreads\022\021.Con.bbsClie" +
+      "ntReq\032\016.Con.bbsThread\"\0000\001\0224\n\013getUserInfo" +
+      "\022\021.Con.bbsClientReq\032\020.Con.bbsUserInfo\"\000\022" +
+      "3\n\ngetThreads\022\021.Con.bbsClientReq\032\016.Con.b" +
+      "bsThread\"\0000\001\022/\n\010genPosts\022\021.Con.bbsClient" +
+      "Req\032\014.Con.bbsPost\"\0000\001\0224\n\nchPassword\022\021.Co" +
+      "n.bbsClientReq\032\021.Con.bbsServerRes\"\000\0228\n\017r" +
+      "efreshUserInfo\022\020.Con.bbsUserInfo\032\021.Con.b" +
+      "bsServerRes\"\000\0221\n\npushThread\022\016.Con.bbsThr" +
+      "ead\032\021.Con.bbsServerRes\"\000\022.\n\tpushPosts\022\014." +
+      "Con.bbsPost\032\021.Con.bbsServerRes\"\000\0224\n\nuser" +
+      "Logout\022\021.Con.bbsClientReq\032\021.Con.bbsServe" +
+      "rRes\"\000\0223\n\tdelThread\022\021.Con.bbsClientReq\032\021" +
+      ".Con.bbsServerRes\"\000\0221\n\007delPost\022\021.Con.bbs" +
+      "ClientReq\032\021.Con.bbsServerRes\"\000\0221\n\007getinf" +
+      "o\022\020.Con.userinfoReq\032\022.Con.userinfoReply\"" +
+      "\000B\037\n\033com.blinderjay.BBS.grpc.ConP\001b\006prot" +
+      "o3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -194,7 +198,7 @@ public final class ContactService {
     internal_static_Con_userLoginReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Con_userLoginReq_descriptor,
-        new java.lang.String[] { "Email", "Pass", });
+        new java.lang.String[] { "Name", "Pass", });
     internal_static_Con_userInRes_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_Con_userInRes_fieldAccessorTable = new
@@ -206,19 +210,19 @@ public final class ContactService {
     internal_static_Con_bbsUserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Con_bbsUserInfo_descriptor,
-        new java.lang.String[] { "Err", "Uid", "Name", "Email", "Lastlogintime", });
+        new java.lang.String[] { "Cookie", "Err", "Name", "Email", "Lastlogintime", });
     internal_static_Con_bbsThread_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_Con_bbsThread_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Con_bbsThread_descriptor,
-        new java.lang.String[] { "Err", "Tid", "User", "Topic", "Contex", "Time", });
+        new java.lang.String[] { "Cookie", "Err", "Tid", "User", "Topic", "Contex", "Time", });
     internal_static_Con_bbsPost_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_Con_bbsPost_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Con_bbsPost_descriptor,
-        new java.lang.String[] { "Err", "Pid", "Tid", "User", "Contex", "Time", });
+        new java.lang.String[] { "Cookie", "Err", "Pid", "Tid", "User", "Contex", "Time", });
     internal_static_Con_userinfoReq_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_Con_userinfoReq_fieldAccessorTable = new

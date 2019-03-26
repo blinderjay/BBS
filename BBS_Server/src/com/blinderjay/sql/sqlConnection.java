@@ -22,6 +22,13 @@ public class sqlConnection {
         Statement stmt ;
         
 
+        public sqlConnection(){
+            this("org.mariadb.jdbc.Driver","jdbc:mariadb://127.0.0.1/bbs","root","root");
+        }
+        
+              public sqlConnection(String User, String Password){
+            this("org.mariadb.jdbc.Driver","jdbc:mariadb://127.0.0.1/bbs",User,Password);
+        }
     public sqlConnection(String JDBC_Driver , String DB_URL, String User, String Password) {
         this.JDBC_Driver = JDBC_Driver;
         this.DB_URL = DB_URL;

@@ -8,7 +8,7 @@
     <update check="always"/>
     <resources>
         <j2se version="10.0.2+" href="http://java.sun.com/products/autodl/j2se"/>
-        <jar href="BBS_Client.jar" size="197011" download="eager"/>
+        <jar href="BBS_Client.jar" size="201130" download="eager"/>
         <jar href="lib/grpc-all-1.19.0.jar" size="361" download="eager"/>
         <jar href="lib/grpc-context-1.19.0.jar" size="29016" download="eager"/>
         <jar href="lib/grpc-core-1.19.0.jar" size="766263" download="eager"/>

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.blinderjay.BBS;
+package com.blinderjay.BBS.server.Util;
 
 /**
  *
  * @author blinderjay
  */
-public class User {
-    
-}
+     public enum userStatus {
+         Offline ,Alive ;
+     }

@@ -13,8 +13,8 @@ import com.blinderjay.BBS.grpc.Con.bbsCookie;
  */
 public class CookieUtil {
 
-    private static String _name;
-    private static String _value;
+    private static String _name="";
+    private static String _value="";
     
     public static void setCookie(String name, String value) {
         _name = name;
@@ -35,5 +35,9 @@ public static String getName(){
 }
 public static String getValue(){
     return _value;
+}
+
+public static boolean checkloged(){
+    return _name.equals("_cookie")    &&    !_value.equals("");
 }
 }

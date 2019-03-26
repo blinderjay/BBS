@@ -16,9 +16,6 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
- * <pre>
- *the contact between client and server 
- * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.19.0)",
@@ -95,35 +92,35 @@ public final class BBS_ConGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq,
-      com.blinderjay.BBS.grpc.Con.bbsServerRes> getUserLogoutMethod;
+      com.blinderjay.BBS.grpc.Con.bbsThread> getGetAllThreadsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "userLogout",
+      fullMethodName = SERVICE_NAME + '/' + "getAllThreads",
       requestType = com.blinderjay.BBS.grpc.Con.bbsClientReq.class,
-      responseType = com.blinderjay.BBS.grpc.Con.bbsServerRes.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+      responseType = com.blinderjay.BBS.grpc.Con.bbsThread.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
   public static io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq,
-      com.blinderjay.BBS.grpc.Con.bbsServerRes> getUserLogoutMethod() {
-    io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq, com.blinderjay.BBS.grpc.Con.bbsServerRes> getUserLogoutMethod;
-    if ((getUserLogoutMethod = BBS_ConGrpc.getUserLogoutMethod) == null) {
+      com.blinderjay.BBS.grpc.Con.bbsThread> getGetAllThreadsMethod() {
+    io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq, com.blinderjay.BBS.grpc.Con.bbsThread> getGetAllThreadsMethod;
+    if ((getGetAllThreadsMethod = BBS_ConGrpc.getGetAllThreadsMethod) == null) {
       synchronized (BBS_ConGrpc.class) {
-        if ((getUserLogoutMethod = BBS_ConGrpc.getUserLogoutMethod) == null) {
-          BBS_ConGrpc.getUserLogoutMethod = getUserLogoutMethod = 
-              io.grpc.MethodDescriptor.<com.blinderjay.BBS.grpc.Con.bbsClientReq, com.blinderjay.BBS.grpc.Con.bbsServerRes>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+        if ((getGetAllThreadsMethod = BBS_ConGrpc.getGetAllThreadsMethod) == null) {
+          BBS_ConGrpc.getGetAllThreadsMethod = getGetAllThreadsMethod = 
+              io.grpc.MethodDescriptor.<com.blinderjay.BBS.grpc.Con.bbsClientReq, com.blinderjay.BBS.grpc.Con.bbsThread>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "Con.BBS_Con", "userLogout"))
+                  "Con.BBS_Con", "getAllThreads"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.blinderjay.BBS.grpc.Con.bbsClientReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.blinderjay.BBS.grpc.Con.bbsServerRes.getDefaultInstance()))
-                  .setSchemaDescriptor(new BBS_ConMethodDescriptorSupplier("userLogout"))
+                  com.blinderjay.BBS.grpc.Con.bbsThread.getDefaultInstance()))
+                  .setSchemaDescriptor(new BBS_ConMethodDescriptorSupplier("getAllThreads"))
                   .build();
           }
         }
      }
-     return getUserLogoutMethod;
+     return getGetAllThreadsMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq,
@@ -220,6 +217,38 @@ public final class BBS_ConGrpc {
         }
      }
      return getGenPostsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq,
+      com.blinderjay.BBS.grpc.Con.bbsServerRes> getChPasswordMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "chPassword",
+      requestType = com.blinderjay.BBS.grpc.Con.bbsClientReq.class,
+      responseType = com.blinderjay.BBS.grpc.Con.bbsServerRes.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq,
+      com.blinderjay.BBS.grpc.Con.bbsServerRes> getChPasswordMethod() {
+    io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq, com.blinderjay.BBS.grpc.Con.bbsServerRes> getChPasswordMethod;
+    if ((getChPasswordMethod = BBS_ConGrpc.getChPasswordMethod) == null) {
+      synchronized (BBS_ConGrpc.class) {
+        if ((getChPasswordMethod = BBS_ConGrpc.getChPasswordMethod) == null) {
+          BBS_ConGrpc.getChPasswordMethod = getChPasswordMethod = 
+              io.grpc.MethodDescriptor.<com.blinderjay.BBS.grpc.Con.bbsClientReq, com.blinderjay.BBS.grpc.Con.bbsServerRes>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "Con.BBS_Con", "chPassword"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.blinderjay.BBS.grpc.Con.bbsClientReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.blinderjay.BBS.grpc.Con.bbsServerRes.getDefaultInstance()))
+                  .setSchemaDescriptor(new BBS_ConMethodDescriptorSupplier("chPassword"))
+                  .build();
+          }
+        }
+     }
+     return getChPasswordMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsUserInfo,
@@ -319,6 +348,38 @@ public final class BBS_ConGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq,
+      com.blinderjay.BBS.grpc.Con.bbsServerRes> getUserLogoutMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "userLogout",
+      requestType = com.blinderjay.BBS.grpc.Con.bbsClientReq.class,
+      responseType = com.blinderjay.BBS.grpc.Con.bbsServerRes.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq,
+      com.blinderjay.BBS.grpc.Con.bbsServerRes> getUserLogoutMethod() {
+    io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq, com.blinderjay.BBS.grpc.Con.bbsServerRes> getUserLogoutMethod;
+    if ((getUserLogoutMethod = BBS_ConGrpc.getUserLogoutMethod) == null) {
+      synchronized (BBS_ConGrpc.class) {
+        if ((getUserLogoutMethod = BBS_ConGrpc.getUserLogoutMethod) == null) {
+          BBS_ConGrpc.getUserLogoutMethod = getUserLogoutMethod = 
+              io.grpc.MethodDescriptor.<com.blinderjay.BBS.grpc.Con.bbsClientReq, com.blinderjay.BBS.grpc.Con.bbsServerRes>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "Con.BBS_Con", "userLogout"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.blinderjay.BBS.grpc.Con.bbsClientReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.blinderjay.BBS.grpc.Con.bbsServerRes.getDefaultInstance()))
+                  .setSchemaDescriptor(new BBS_ConMethodDescriptorSupplier("userLogout"))
+                  .build();
+          }
+        }
+     }
+     return getUserLogoutMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq,
       com.blinderjay.BBS.grpc.Con.bbsServerRes> getDelThreadMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
@@ -382,38 +443,6 @@ public final class BBS_ConGrpc {
      return getDelPostMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq,
-      com.blinderjay.BBS.grpc.Con.bbsServerRes> getChPasswordMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "chPassword",
-      requestType = com.blinderjay.BBS.grpc.Con.bbsClientReq.class,
-      responseType = com.blinderjay.BBS.grpc.Con.bbsServerRes.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq,
-      com.blinderjay.BBS.grpc.Con.bbsServerRes> getChPasswordMethod() {
-    io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.bbsClientReq, com.blinderjay.BBS.grpc.Con.bbsServerRes> getChPasswordMethod;
-    if ((getChPasswordMethod = BBS_ConGrpc.getChPasswordMethod) == null) {
-      synchronized (BBS_ConGrpc.class) {
-        if ((getChPasswordMethod = BBS_ConGrpc.getChPasswordMethod) == null) {
-          BBS_ConGrpc.getChPasswordMethod = getChPasswordMethod = 
-              io.grpc.MethodDescriptor.<com.blinderjay.BBS.grpc.Con.bbsClientReq, com.blinderjay.BBS.grpc.Con.bbsServerRes>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "Con.BBS_Con", "chPassword"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.blinderjay.BBS.grpc.Con.bbsClientReq.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.blinderjay.BBS.grpc.Con.bbsServerRes.getDefaultInstance()))
-                  .setSchemaDescriptor(new BBS_ConMethodDescriptorSupplier("chPassword"))
-                  .build();
-          }
-        }
-     }
-     return getChPasswordMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<com.blinderjay.BBS.grpc.Con.userinfoReq,
       com.blinderjay.BBS.grpc.Con.userinfoReply> getGetinfoMethod;
 
@@ -470,13 +499,13 @@ public final class BBS_ConGrpc {
   }
 
   /**
-   * <pre>
-   *the contact between client and server 
-   * </pre>
    */
   public static abstract class BBS_ConImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     * following 2 request do not need cookie
+     * </pre>
      */
     public void userRegister(com.blinderjay.BBS.grpc.Con.userRegisReq request,
         io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.userInRes> responseObserver) {
@@ -492,12 +521,15 @@ public final class BBS_ConGrpc {
 
     /**
      */
-    public void userLogout(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
-        io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
-      asyncUnimplementedUnaryCall(getUserLogoutMethod(), responseObserver);
+    public void getAllThreads(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
+        io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsThread> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetAllThreadsMethod(), responseObserver);
     }
 
     /**
+     * <pre>
+     *get info:
+     * </pre>
      */
     public void getUserInfo(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
         io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsUserInfo> responseObserver) {
@@ -516,6 +548,16 @@ public final class BBS_ConGrpc {
     public void genPosts(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
         io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsPost> responseObserver) {
       asyncUnimplementedUnaryCall(getGenPostsMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *refresh info in database
+     * </pre>
+     */
+    public void chPassword(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
+        io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
+      asyncUnimplementedUnaryCall(getChPasswordMethod(), responseObserver);
     }
 
     /**
@@ -540,6 +582,16 @@ public final class BBS_ConGrpc {
     }
 
     /**
+     * <pre>
+     *delete info in database or server
+     * </pre>
+     */
+    public void userLogout(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
+        io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
+      asyncUnimplementedUnaryCall(getUserLogoutMethod(), responseObserver);
+    }
+
+    /**
      */
     public void delThread(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
         io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
@@ -551,13 +603,6 @@ public final class BBS_ConGrpc {
     public void delPost(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
         io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
       asyncUnimplementedUnaryCall(getDelPostMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void chPassword(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
-        io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
-      asyncUnimplementedUnaryCall(getChPasswordMethod(), responseObserver);
     }
 
     /**
@@ -587,12 +632,12 @@ public final class BBS_ConGrpc {
                 com.blinderjay.BBS.grpc.Con.userInRes>(
                   this, METHODID_USER_LOGIN)))
           .addMethod(
-            getUserLogoutMethod(),
-            asyncUnaryCall(
+            getGetAllThreadsMethod(),
+            asyncServerStreamingCall(
               new MethodHandlers<
                 com.blinderjay.BBS.grpc.Con.bbsClientReq,
-                com.blinderjay.BBS.grpc.Con.bbsServerRes>(
-                  this, METHODID_USER_LOGOUT)))
+                com.blinderjay.BBS.grpc.Con.bbsThread>(
+                  this, METHODID_GET_ALL_THREADS)))
           .addMethod(
             getGetUserInfoMethod(),
             asyncUnaryCall(
@@ -615,6 +660,13 @@ public final class BBS_ConGrpc {
                 com.blinderjay.BBS.grpc.Con.bbsPost>(
                   this, METHODID_GEN_POSTS)))
           .addMethod(
+            getChPasswordMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.blinderjay.BBS.grpc.Con.bbsClientReq,
+                com.blinderjay.BBS.grpc.Con.bbsServerRes>(
+                  this, METHODID_CH_PASSWORD)))
+          .addMethod(
             getRefreshUserInfoMethod(),
             asyncUnaryCall(
               new MethodHandlers<
@@ -636,6 +688,13 @@ public final class BBS_ConGrpc {
                 com.blinderjay.BBS.grpc.Con.bbsServerRes>(
                   this, METHODID_PUSH_POSTS)))
           .addMethod(
+            getUserLogoutMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.blinderjay.BBS.grpc.Con.bbsClientReq,
+                com.blinderjay.BBS.grpc.Con.bbsServerRes>(
+                  this, METHODID_USER_LOGOUT)))
+          .addMethod(
             getDelThreadMethod(),
             asyncUnaryCall(
               new MethodHandlers<
@@ -650,13 +709,6 @@ public final class BBS_ConGrpc {
                 com.blinderjay.BBS.grpc.Con.bbsServerRes>(
                   this, METHODID_DEL_POST)))
           .addMethod(
-            getChPasswordMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.blinderjay.BBS.grpc.Con.bbsClientReq,
-                com.blinderjay.BBS.grpc.Con.bbsServerRes>(
-                  this, METHODID_CH_PASSWORD)))
-          .addMethod(
             getGetinfoMethod(),
             asyncUnaryCall(
               new MethodHandlers<
@@ -668,9 +720,6 @@ public final class BBS_ConGrpc {
   }
 
   /**
-   * <pre>
-   *the contact between client and server 
-   * </pre>
    */
   public static final class BBS_ConStub extends io.grpc.stub.AbstractStub<BBS_ConStub> {
     private BBS_ConStub(io.grpc.Channel channel) {
@@ -689,6 +738,9 @@ public final class BBS_ConGrpc {
     }
 
     /**
+     * <pre>
+     * following 2 request do not need cookie
+     * </pre>
      */
     public void userRegister(com.blinderjay.BBS.grpc.Con.userRegisReq request,
         io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.userInRes> responseObserver) {
@@ -706,13 +758,16 @@ public final class BBS_ConGrpc {
 
     /**
      */
-    public void userLogout(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
-        io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getUserLogoutMethod(), getCallOptions()), request, responseObserver);
+    public void getAllThreads(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
+        io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsThread> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetAllThreadsMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
+     * <pre>
+     *get info:
+     * </pre>
      */
     public void getUserInfo(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
         io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsUserInfo> responseObserver) {
@@ -734,6 +789,17 @@ public final class BBS_ConGrpc {
         io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsPost> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getGenPostsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *refresh info in database
+     * </pre>
+     */
+    public void chPassword(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
+        io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getChPasswordMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -761,6 +827,17 @@ public final class BBS_ConGrpc {
     }
 
     /**
+     * <pre>
+     *delete info in database or server
+     * </pre>
+     */
+    public void userLogout(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
+        io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUserLogoutMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
      */
     public void delThread(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
         io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
@@ -777,14 +854,6 @@ public final class BBS_ConGrpc {
     }
 
     /**
-     */
-    public void chPassword(com.blinderjay.BBS.grpc.Con.bbsClientReq request,
-        io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getChPasswordMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
      * <pre>
      *for test
      * </pre>
@@ -797,9 +866,6 @@ public final class BBS_ConGrpc {
   }
 
   /**
-   * <pre>
-   *the contact between client and server 
-   * </pre>
    */
   public static final class BBS_ConBlockingStub extends io.grpc.stub.AbstractStub<BBS_ConBlockingStub> {
     private BBS_ConBlockingStub(io.grpc.Channel channel) {
@@ -818,6 +884,9 @@ public final class BBS_ConGrpc {
     }
 
     /**
+     * <pre>
+     * following 2 request do not need cookie
+     * </pre>
      */
     public com.blinderjay.BBS.grpc.Con.userInRes userRegister(com.blinderjay.BBS.grpc.Con.userRegisReq request) {
       return blockingUnaryCall(
@@ -833,12 +902,16 @@ public final class BBS_ConGrpc {
 
     /**
      */
-    public com.blinderjay.BBS.grpc.Con.bbsServerRes userLogout(com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
-      return blockingUnaryCall(
-          getChannel(), getUserLogoutMethod(), getCallOptions(), request);
+    public java.util.Iterator<com.blinderjay.BBS.grpc.Con.bbsThread> getAllThreads(
+        com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetAllThreadsMethod(), getCallOptions(), request);
     }
 
     /**
+     * <pre>
+     *get info:
+     * </pre>
      */
     public com.blinderjay.BBS.grpc.Con.bbsUserInfo getUserInfo(com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
       return blockingUnaryCall(
@@ -859,6 +932,16 @@ public final class BBS_ConGrpc {
         com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
       return blockingServerStreamingCall(
           getChannel(), getGenPostsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *refresh info in database
+     * </pre>
+     */
+    public com.blinderjay.BBS.grpc.Con.bbsServerRes chPassword(com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
+      return blockingUnaryCall(
+          getChannel(), getChPasswordMethod(), getCallOptions(), request);
     }
 
     /**
@@ -883,6 +966,16 @@ public final class BBS_ConGrpc {
     }
 
     /**
+     * <pre>
+     *delete info in database or server
+     * </pre>
+     */
+    public com.blinderjay.BBS.grpc.Con.bbsServerRes userLogout(com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
+      return blockingUnaryCall(
+          getChannel(), getUserLogoutMethod(), getCallOptions(), request);
+    }
+
+    /**
      */
     public com.blinderjay.BBS.grpc.Con.bbsServerRes delThread(com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
       return blockingUnaryCall(
@@ -897,13 +990,6 @@ public final class BBS_ConGrpc {
     }
 
     /**
-     */
-    public com.blinderjay.BBS.grpc.Con.bbsServerRes chPassword(com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
-      return blockingUnaryCall(
-          getChannel(), getChPasswordMethod(), getCallOptions(), request);
-    }
-
-    /**
      * <pre>
      *for test
      * </pre>
@@ -915,9 +1001,6 @@ public final class BBS_ConGrpc {
   }
 
   /**
-   * <pre>
-   *the contact between client and server 
-   * </pre>
    */
   public static final class BBS_ConFutureStub extends io.grpc.stub.AbstractStub<BBS_ConFutureStub> {
     private BBS_ConFutureStub(io.grpc.Channel channel) {
@@ -936,6 +1019,9 @@ public final class BBS_ConGrpc {
     }
 
     /**
+     * <pre>
+     * following 2 request do not need cookie
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.blinderjay.BBS.grpc.Con.userInRes> userRegister(
         com.blinderjay.BBS.grpc.Con.userRegisReq request) {
@@ -952,19 +1038,25 @@ public final class BBS_ConGrpc {
     }
 
     /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.blinderjay.BBS.grpc.Con.bbsServerRes> userLogout(
-        com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
-      return futureUnaryCall(
-          getChannel().newCall(getUserLogoutMethod(), getCallOptions()), request);
-    }
-
-    /**
+     * <pre>
+     *get info:
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.blinderjay.BBS.grpc.Con.bbsUserInfo> getUserInfo(
         com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
       return futureUnaryCall(
           getChannel().newCall(getGetUserInfoMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     *refresh info in database
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.blinderjay.BBS.grpc.Con.bbsServerRes> chPassword(
+        com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getChPasswordMethod(), getCallOptions()), request);
     }
 
     /**
@@ -992,6 +1084,17 @@ public final class BBS_ConGrpc {
     }
 
     /**
+     * <pre>
+     *delete info in database or server
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.blinderjay.BBS.grpc.Con.bbsServerRes> userLogout(
+        com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUserLogoutMethod(), getCallOptions()), request);
+    }
+
+    /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.blinderjay.BBS.grpc.Con.bbsServerRes> delThread(
         com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
@@ -1008,14 +1111,6 @@ public final class BBS_ConGrpc {
     }
 
     /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.blinderjay.BBS.grpc.Con.bbsServerRes> chPassword(
-        com.blinderjay.BBS.grpc.Con.bbsClientReq request) {
-      return futureUnaryCall(
-          getChannel().newCall(getChPasswordMethod(), getCallOptions()), request);
-    }
-
-    /**
      * <pre>
      *for test
      * </pre>
@@ -1029,17 +1124,18 @@ public final class BBS_ConGrpc {
 
   private static final int METHODID_USER_REGISTER = 0;
   private static final int METHODID_USER_LOGIN = 1;
-  private static final int METHODID_USER_LOGOUT = 2;
+  private static final int METHODID_GET_ALL_THREADS = 2;
   private static final int METHODID_GET_USER_INFO = 3;
   private static final int METHODID_GET_THREADS = 4;
   private static final int METHODID_GEN_POSTS = 5;
-  private static final int METHODID_REFRESH_USER_INFO = 6;
-  private static final int METHODID_PUSH_THREAD = 7;
-  private static final int METHODID_PUSH_POSTS = 8;
-  private static final int METHODID_DEL_THREAD = 9;
-  private static final int METHODID_DEL_POST = 10;
-  private static final int METHODID_CH_PASSWORD = 11;
-  private static final int METHODID_GETINFO = 12;
+  private static final int METHODID_CH_PASSWORD = 6;
+  private static final int METHODID_REFRESH_USER_INFO = 7;
+  private static final int METHODID_PUSH_THREAD = 8;
+  private static final int METHODID_PUSH_POSTS = 9;
+  private static final int METHODID_USER_LOGOUT = 10;
+  private static final int METHODID_DEL_THREAD = 11;
+  private static final int METHODID_DEL_POST = 12;
+  private static final int METHODID_GETINFO = 13;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1066,9 +1162,9 @@ public final class BBS_ConGrpc {
           serviceImpl.userLogin((com.blinderjay.BBS.grpc.Con.userLoginReq) request,
               (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.userInRes>) responseObserver);
           break;
-        case METHODID_USER_LOGOUT:
-          serviceImpl.userLogout((com.blinderjay.BBS.grpc.Con.bbsClientReq) request,
-              (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes>) responseObserver);
+        case METHODID_GET_ALL_THREADS:
+          serviceImpl.getAllThreads((com.blinderjay.BBS.grpc.Con.bbsClientReq) request,
+              (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsThread>) responseObserver);
           break;
         case METHODID_GET_USER_INFO:
           serviceImpl.getUserInfo((com.blinderjay.BBS.grpc.Con.bbsClientReq) request,
@@ -1082,6 +1178,10 @@ public final class BBS_ConGrpc {
           serviceImpl.genPosts((com.blinderjay.BBS.grpc.Con.bbsClientReq) request,
               (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsPost>) responseObserver);
           break;
+        case METHODID_CH_PASSWORD:
+          serviceImpl.chPassword((com.blinderjay.BBS.grpc.Con.bbsClientReq) request,
+              (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes>) responseObserver);
+          break;
         case METHODID_REFRESH_USER_INFO:
           serviceImpl.refreshUserInfo((com.blinderjay.BBS.grpc.Con.bbsUserInfo) request,
               (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes>) responseObserver);
@@ -1094,16 +1194,16 @@ public final class BBS_ConGrpc {
           serviceImpl.pushPosts((com.blinderjay.BBS.grpc.Con.bbsPost) request,
               (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes>) responseObserver);
           break;
+        case METHODID_USER_LOGOUT:
+          serviceImpl.userLogout((com.blinderjay.BBS.grpc.Con.bbsClientReq) request,
+              (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes>) responseObserver);
+          break;
         case METHODID_DEL_THREAD:
           serviceImpl.delThread((com.blinderjay.BBS.grpc.Con.bbsClientReq) request,
               (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes>) responseObserver);
           break;
         case METHODID_DEL_POST:
           serviceImpl.delPost((com.blinderjay.BBS.grpc.Con.bbsClientReq) request,
-              (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes>) responseObserver);
-          break;
-        case METHODID_CH_PASSWORD:
-          serviceImpl.chPassword((com.blinderjay.BBS.grpc.Con.bbsClientReq) request,
               (io.grpc.stub.StreamObserver<com.blinderjay.BBS.grpc.Con.bbsServerRes>) responseObserver);
           break;
         case METHODID_GETINFO:
@@ -1173,16 +1273,17 @@ public final class BBS_ConGrpc {
               .setSchemaDescriptor(new BBS_ConFileDescriptorSupplier())
               .addMethod(getUserRegisterMethod())
               .addMethod(getUserLoginMethod())
-              .addMethod(getUserLogoutMethod())
+              .addMethod(getGetAllThreadsMethod())
               .addMethod(getGetUserInfoMethod())
               .addMethod(getGetThreadsMethod())
               .addMethod(getGenPostsMethod())
+              .addMethod(getChPasswordMethod())
               .addMethod(getRefreshUserInfoMethod())
               .addMethod(getPushThreadMethod())
               .addMethod(getPushPostsMethod())
+              .addMethod(getUserLogoutMethod())
               .addMethod(getDelThreadMethod())
               .addMethod(getDelPostMethod())
-              .addMethod(getChPasswordMethod())
               .addMethod(getGetinfoMethod())
               .build();
         }

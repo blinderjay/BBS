@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private bbsUserInfo() {
-    uid_ = 0;
     name_ = "";
     email_ = "";
   }
@@ -53,6 +52,19 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 10: {
+            com.blinderjay.BBS.grpc.Con.bbsCookie.Builder subBuilder = null;
+            if (cookie_ != null) {
+              subBuilder = cookie_.toBuilder();
+            }
+            cookie_ = input.readMessage(com.blinderjay.BBS.grpc.Con.bbsCookie.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(cookie_);
+              cookie_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 18: {
             com.blinderjay.BBS.grpc.Con.bbsError.Builder subBuilder = null;
             if (err_ != null) {
               subBuilder = err_.toBuilder();
@@ -63,11 +75,6 @@ private static final long serialVersionUID = 0L;
               err_ = subBuilder.buildPartial();
             }
 
-            break;
-          }
-          case 16: {
-
-            uid_ = input.readInt32();
             break;
           }
           case 26: {
@@ -119,34 +126,46 @@ private static final long serialVersionUID = 0L;
             com.blinderjay.BBS.grpc.Con.bbsUserInfo.class, com.blinderjay.BBS.grpc.Con.bbsUserInfo.Builder.class);
   }
 
-  public static final int ERR_FIELD_NUMBER = 1;
+  public static final int COOKIE_FIELD_NUMBER = 1;
+  private com.blinderjay.BBS.grpc.Con.bbsCookie cookie_;
+  /**
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  public boolean hasCookie() {
+    return cookie_ != null;
+  }
+  /**
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  public com.blinderjay.BBS.grpc.Con.bbsCookie getCookie() {
+    return cookie_ == null ? com.blinderjay.BBS.grpc.Con.bbsCookie.getDefaultInstance() : cookie_;
+  }
+  /**
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  public com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder getCookieOrBuilder() {
+    return getCookie();
+  }
+
+  public static final int ERR_FIELD_NUMBER = 2;
   private com.blinderjay.BBS.grpc.Con.bbsError err_;
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsError err = 2;</code>
    */
   public boolean hasErr() {
     return err_ != null;
   }
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsError err = 2;</code>
    */
   public com.blinderjay.BBS.grpc.Con.bbsError getErr() {
     return err_ == null ? com.blinderjay.BBS.grpc.Con.bbsError.getDefaultInstance() : err_;
   }
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsError err = 2;</code>
    */
   public com.blinderjay.BBS.grpc.Con.bbsErrorOrBuilder getErrOrBuilder() {
     return getErr();
-  }
-
-  public static final int UID_FIELD_NUMBER = 2;
-  private int uid_;
-  /**
-   * <code>int32 uid = 2;</code>
-   */
-  public int getUid() {
-    return uid_;
   }
 
   public static final int NAME_FIELD_NUMBER = 3;
@@ -250,11 +269,11 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (err_ != null) {
-      output.writeMessage(1, getErr());
+    if (cookie_ != null) {
+      output.writeMessage(1, getCookie());
     }
-    if (uid_ != 0) {
-      output.writeInt32(2, uid_);
+    if (err_ != null) {
+      output.writeMessage(2, getErr());
     }
     if (!getNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
@@ -273,13 +292,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (cookie_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getCookie());
+    }
     if (err_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getErr());
-    }
-    if (uid_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, uid_);
+        .computeMessageSize(2, getErr());
     }
     if (!getNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
@@ -307,13 +326,16 @@ private static final long serialVersionUID = 0L;
     com.blinderjay.BBS.grpc.Con.bbsUserInfo other = (com.blinderjay.BBS.grpc.Con.bbsUserInfo) obj;
 
     boolean result = true;
+    result = result && (hasCookie() == other.hasCookie());
+    if (hasCookie()) {
+      result = result && getCookie()
+          .equals(other.getCookie());
+    }
     result = result && (hasErr() == other.hasErr());
     if (hasErr()) {
       result = result && getErr()
           .equals(other.getErr());
     }
-    result = result && (getUid()
-        == other.getUid());
     result = result && getName()
         .equals(other.getName());
     result = result && getEmail()
@@ -334,12 +356,14 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasCookie()) {
+      hash = (37 * hash) + COOKIE_FIELD_NUMBER;
+      hash = (53 * hash) + getCookie().hashCode();
+    }
     if (hasErr()) {
       hash = (37 * hash) + ERR_FIELD_NUMBER;
       hash = (53 * hash) + getErr().hashCode();
     }
-    hash = (37 * hash) + UID_FIELD_NUMBER;
-    hash = (53 * hash) + getUid();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + EMAIL_FIELD_NUMBER;
@@ -477,14 +501,18 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
+      if (cookieBuilder_ == null) {
+        cookie_ = null;
+      } else {
+        cookie_ = null;
+        cookieBuilder_ = null;
+      }
       if (errBuilder_ == null) {
         err_ = null;
       } else {
         err_ = null;
         errBuilder_ = null;
       }
-      uid_ = 0;
-
       name_ = "";
 
       email_ = "";
@@ -517,12 +545,16 @@ private static final long serialVersionUID = 0L;
 
     public com.blinderjay.BBS.grpc.Con.bbsUserInfo buildPartial() {
       com.blinderjay.BBS.grpc.Con.bbsUserInfo result = new com.blinderjay.BBS.grpc.Con.bbsUserInfo(this);
+      if (cookieBuilder_ == null) {
+        result.cookie_ = cookie_;
+      } else {
+        result.cookie_ = cookieBuilder_.build();
+      }
       if (errBuilder_ == null) {
         result.err_ = err_;
       } else {
         result.err_ = errBuilder_.build();
       }
-      result.uid_ = uid_;
       result.name_ = name_;
       result.email_ = email_;
       if (lastlogintimeBuilder_ == null) {
@@ -571,11 +603,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.blinderjay.BBS.grpc.Con.bbsUserInfo other) {
       if (other == com.blinderjay.BBS.grpc.Con.bbsUserInfo.getDefaultInstance()) return this;
+      if (other.hasCookie()) {
+        mergeCookie(other.getCookie());
+      }
       if (other.hasErr()) {
         mergeErr(other.getErr());
-      }
-      if (other.getUid() != 0) {
-        setUid(other.getUid());
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
@@ -615,17 +647,134 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.blinderjay.BBS.grpc.Con.bbsCookie cookie_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.blinderjay.BBS.grpc.Con.bbsCookie, com.blinderjay.BBS.grpc.Con.bbsCookie.Builder, com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder> cookieBuilder_;
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public boolean hasCookie() {
+      return cookieBuilder_ != null || cookie_ != null;
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public com.blinderjay.BBS.grpc.Con.bbsCookie getCookie() {
+      if (cookieBuilder_ == null) {
+        return cookie_ == null ? com.blinderjay.BBS.grpc.Con.bbsCookie.getDefaultInstance() : cookie_;
+      } else {
+        return cookieBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public Builder setCookie(com.blinderjay.BBS.grpc.Con.bbsCookie value) {
+      if (cookieBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        cookie_ = value;
+        onChanged();
+      } else {
+        cookieBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public Builder setCookie(
+        com.blinderjay.BBS.grpc.Con.bbsCookie.Builder builderForValue) {
+      if (cookieBuilder_ == null) {
+        cookie_ = builderForValue.build();
+        onChanged();
+      } else {
+        cookieBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public Builder mergeCookie(com.blinderjay.BBS.grpc.Con.bbsCookie value) {
+      if (cookieBuilder_ == null) {
+        if (cookie_ != null) {
+          cookie_ =
+            com.blinderjay.BBS.grpc.Con.bbsCookie.newBuilder(cookie_).mergeFrom(value).buildPartial();
+        } else {
+          cookie_ = value;
+        }
+        onChanged();
+      } else {
+        cookieBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public Builder clearCookie() {
+      if (cookieBuilder_ == null) {
+        cookie_ = null;
+        onChanged();
+      } else {
+        cookie_ = null;
+        cookieBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public com.blinderjay.BBS.grpc.Con.bbsCookie.Builder getCookieBuilder() {
+      
+      onChanged();
+      return getCookieFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    public com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder getCookieOrBuilder() {
+      if (cookieBuilder_ != null) {
+        return cookieBuilder_.getMessageOrBuilder();
+      } else {
+        return cookie_ == null ?
+            com.blinderjay.BBS.grpc.Con.bbsCookie.getDefaultInstance() : cookie_;
+      }
+    }
+    /**
+     * <code>.Con.bbsCookie cookie = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.blinderjay.BBS.grpc.Con.bbsCookie, com.blinderjay.BBS.grpc.Con.bbsCookie.Builder, com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder> 
+        getCookieFieldBuilder() {
+      if (cookieBuilder_ == null) {
+        cookieBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.blinderjay.BBS.grpc.Con.bbsCookie, com.blinderjay.BBS.grpc.Con.bbsCookie.Builder, com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder>(
+                getCookie(),
+                getParentForChildren(),
+                isClean());
+        cookie_ = null;
+      }
+      return cookieBuilder_;
+    }
+
     private com.blinderjay.BBS.grpc.Con.bbsError err_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.blinderjay.BBS.grpc.Con.bbsError, com.blinderjay.BBS.grpc.Con.bbsError.Builder, com.blinderjay.BBS.grpc.Con.bbsErrorOrBuilder> errBuilder_;
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public boolean hasErr() {
       return errBuilder_ != null || err_ != null;
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public com.blinderjay.BBS.grpc.Con.bbsError getErr() {
       if (errBuilder_ == null) {
@@ -635,7 +784,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public Builder setErr(com.blinderjay.BBS.grpc.Con.bbsError value) {
       if (errBuilder_ == null) {
@@ -651,7 +800,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public Builder setErr(
         com.blinderjay.BBS.grpc.Con.bbsError.Builder builderForValue) {
@@ -665,7 +814,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public Builder mergeErr(com.blinderjay.BBS.grpc.Con.bbsError value) {
       if (errBuilder_ == null) {
@@ -683,7 +832,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public Builder clearErr() {
       if (errBuilder_ == null) {
@@ -697,7 +846,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public com.blinderjay.BBS.grpc.Con.bbsError.Builder getErrBuilder() {
       
@@ -705,7 +854,7 @@ private static final long serialVersionUID = 0L;
       return getErrFieldBuilder().getBuilder();
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     public com.blinderjay.BBS.grpc.Con.bbsErrorOrBuilder getErrOrBuilder() {
       if (errBuilder_ != null) {
@@ -716,7 +865,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.Con.bbsError err = 1;</code>
+     * <code>.Con.bbsError err = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.blinderjay.BBS.grpc.Con.bbsError, com.blinderjay.BBS.grpc.Con.bbsError.Builder, com.blinderjay.BBS.grpc.Con.bbsErrorOrBuilder> 
@@ -730,32 +879,6 @@ private static final long serialVersionUID = 0L;
         err_ = null;
       }
       return errBuilder_;
-    }
-
-    private int uid_ ;
-    /**
-     * <code>int32 uid = 2;</code>
-     */
-    public int getUid() {
-      return uid_;
-    }
-    /**
-     * <code>int32 uid = 2;</code>
-     */
-    public Builder setUid(int value) {
-      
-      uid_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 uid = 2;</code>
-     */
-    public Builder clearUid() {
-      
-      uid_ = 0;
-      onChanged();
-      return this;
     }
 
     private java.lang.Object name_ = "";

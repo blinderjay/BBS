@@ -15,30 +15,35 @@ option java_package = "com.blinderjay.BBS.grpc.Con";
 
 package Con;
 
-//
-//* basic type
-//
 
-//the contact between client and server 
 service BBS_Con {
+
+// following 2 request do not need cookie
     rpc userRegister(userRegisReq) returns (userInRes){};
     rpc userLogin(userLoginReq) returns (userInRes){};
-   rpc userLogout(bbsClientReq) returns (bbsServerRes){};
+     rpc getAllThreads(bbsClientReq) returns (stream bbsThread){};
 
+
+
+//all request need cookie,and server should check it
+//all the response need a error,and client should handle if(err0 or other)         
+    
+            //get info:
     rpc getUserInfo(bbsClientReq) returns (bbsUserInfo){};
-    rpc getThreads(bbsClientReq) returns (stream bbsThread){};
+    rpc getThreads(bbsClientReq) returns (stream bbsThread){};   //
     rpc genPosts(bbsClientReq) returns (stream bbsPost){};
-
-    rpc refreshUserInfo(bbsUserInfo) returns (bbsServerRes){};
-    rpc pushThread(bbsThread) returns(bbsServerRes){};
-    rpc pushPosts(bbsPost) returns(bbsServerRes){};
-
-    rpc delThread(bbsClientReq) returns (bbsServerRes){};
-    rpc delPost(bbsClientReq) returns (bbsServerRes){};
-    rpc chPassword(bbsClientReq) returns (bbsServerRes){};
-
-//for test
+            //refresh info in database
+    rpc chPassword(bbsClientReq) returns (bbsServerRes){}; 
+    rpc refreshUserInfo(bbsUserInfo) returns (bbsServerRes){};  
+    rpc pushThread(bbsThread) returns(bbsServerRes){};       //
+    rpc pushPosts(bbsPost) returns(bbsServerRes){};    //
+            //delete info in database or server
+    rpc userLogout(bbsClientReq) returns (bbsServerRes){};
+    rpc delThread(bbsClientReq) returns (bbsServerRes){};  //
+    rpc delPost(bbsClientReq) returns (bbsServerRes){};    //
+            //for test
       rpc  getinfo(userinfoReq) returns  (userinfoReply) {};
+
 }
 
 //cookie info
@@ -112,7 +117,7 @@ message userRegisReq{
 }
 
 message userLoginReq{
-    string email = 1;
+    string name = 1;
     string pass = 2;
 }
 
@@ -128,33 +133,35 @@ message userInRes{
 
 
 //
-//*   some special resource reponse
+//*   some special resource 
 //
 
 message bbsUserInfo{
-bbsError err =1;
-int32 uid = 2;
+ bbsCookie cookie=1;
+bbsError err =2;
     string name = 3;
     string email = 4;
     bbsTime lastlogintime = 5;
 }
 
 message bbsThread {
-bbsError err = 1;
-int32 tid = 2;
-string user = 3;
-string topic = 4;
-string contex = 5;
-bbsTime time = 6;
+ bbsCookie cookie=1;
+bbsError err = 2;
+int32 tid = 3;
+string user = 4;
+string topic = 5;
+string contex = 6;
+bbsTime time = 7;
 }
 
 message bbsPost {
-bbsError err = 1;
-int32 pid = 2;
-int32 tid = 3;
-string user = 4;
-string contex = 5;
-bbsTime time = 6;
+ bbsCookie cookie = 1;
+bbsError err = 2;
+int32 pid = 3;
+int32 tid = 4;
+string user = 5;
+string contex = 6;
+bbsTime time = 7;
 }
 
 

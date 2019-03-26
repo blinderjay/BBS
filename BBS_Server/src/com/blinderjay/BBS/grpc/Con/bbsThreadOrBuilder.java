@@ -8,63 +8,76 @@ public interface bbsThreadOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  boolean hasCookie();
+  /**
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  com.blinderjay.BBS.grpc.Con.bbsCookie getCookie();
+  /**
+   * <code>.Con.bbsCookie cookie = 1;</code>
+   */
+  com.blinderjay.BBS.grpc.Con.bbsCookieOrBuilder getCookieOrBuilder();
+
+  /**
+   * <code>.Con.bbsError err = 2;</code>
    */
   boolean hasErr();
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsError err = 2;</code>
    */
   com.blinderjay.BBS.grpc.Con.bbsError getErr();
   /**
-   * <code>.Con.bbsError err = 1;</code>
+   * <code>.Con.bbsError err = 2;</code>
    */
   com.blinderjay.BBS.grpc.Con.bbsErrorOrBuilder getErrOrBuilder();
 
   /**
-   * <code>int32 tid = 2;</code>
+   * <code>int32 tid = 3;</code>
    */
   int getTid();
 
   /**
-   * <code>string user = 3;</code>
+   * <code>string user = 4;</code>
    */
   java.lang.String getUser();
   /**
-   * <code>string user = 3;</code>
+   * <code>string user = 4;</code>
    */
   com.google.protobuf.ByteString
       getUserBytes();
 
   /**
-   * <code>string topic = 4;</code>
+   * <code>string topic = 5;</code>
    */
   java.lang.String getTopic();
   /**
-   * <code>string topic = 4;</code>
+   * <code>string topic = 5;</code>
    */
   com.google.protobuf.ByteString
       getTopicBytes();
 
   /**
-   * <code>string contex = 5;</code>
+   * <code>string contex = 6;</code>
    */
   java.lang.String getContex();
   /**
-   * <code>string contex = 5;</code>
+   * <code>string contex = 6;</code>
    */
   com.google.protobuf.ByteString
       getContexBytes();
 
   /**
-   * <code>.Con.bbsTime time = 6;</code>
+   * <code>.Con.bbsTime time = 7;</code>
    */
   boolean hasTime();
   /**
-   * <code>.Con.bbsTime time = 6;</code>
+   * <code>.Con.bbsTime time = 7;</code>
    */
   com.blinderjay.BBS.grpc.Con.bbsTime getTime();
   /**
-   * <code>.Con.bbsTime time = 6;</code>
+   * <code>.Con.bbsTime time = 7;</code>
    */
   com.blinderjay.BBS.grpc.Con.bbsTimeOrBuilder getTimeOrBuilder();
 }

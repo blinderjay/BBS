@@ -8,14 +8,14 @@ public interface userLoginReqOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string email = 1;</code>
+   * <code>string name = 1;</code>
    */
-  java.lang.String getEmail();
+  java.lang.String getName();
   /**
-   * <code>string email = 1;</code>
+   * <code>string name = 1;</code>
    */
   com.google.protobuf.ByteString
-      getEmailBytes();
+      getNameBytes();
 
   /**
    * <code>string pass = 2;</code>
